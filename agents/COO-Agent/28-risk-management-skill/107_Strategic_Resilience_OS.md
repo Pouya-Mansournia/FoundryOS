@@ -1,0 +1,2 @@
+# 107_Strategic_Resilience_OS
+Resilience and antifragility frameworks.

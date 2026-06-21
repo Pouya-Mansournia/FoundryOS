@@ -1,0 +1,2 @@
+# 56_Contradiction_Detector_OS
+Conflict detection.

@@ -1,0 +1,47 @@
+# FoundryOS is a markdown knowledge system with one maintenance script
+# (scripts/generate_claude_commands.py). This .gitignore covers OS/editor
+# cruft and that script's runtime artifacts — there's no build output to
+# ignore otherwise.
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python (scripts/generate_claude_commands.py)
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+
+# Node (none currently, kept for any future tooling)
+node_modules/
+
+# Logs
+*.log
+
+# Local environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Archives a contributor might accidentally drop at root when testing
+# the "download and extract" install path from INSTALL.md
+*.zip
+*.tar.gz

@@ -1,0 +1,2 @@
+# 75_Competitive_Intelligence_OS
+Competitive monitoring and strategic response.
