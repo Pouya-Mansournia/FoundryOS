@@ -4,10 +4,10 @@
 The master map of how everything in FoundryOS connects — Modules, Skills, Agents, Workflows, Artifacts, Memory, Brand Intelligence, and the advanced-layer Agents that learn from and critique the system's own output. The five companion graphs (`ARTIFACT_GRAPH.md`, `AGENT_GRAPH.md`, `SKILL_GRAPH.md`, `WORKFLOW_GRAPH.md`, `BRAND_GRAPH.md`) are zoomed-in views of one layer each; this file is the zoomed-out view that shows how those layers stack.
 
 ## Nodes
-- **Module** — the atomic unit of domain knowledge (175 total, numbered `00`–`173` with one legacy duplicate at `99`)
-- **Skill** — a grouped capability built from Modules (58 total, 17 of which are brand-specific)
+- **Module** — the atomic unit of domain knowledge (179 total, numbered `00`–`177` with one legacy duplicate at `99`)
+- **Skill** — a grouped capability built from Modules (59 total, 17 of which are brand-specific, 1 of which — `59-problem-solving-decision-modeling-skill` — is a cross-cutting reasoning layer rather than a domain)
 - **Agent** — a role that owns a fixed set of Skills (10 total, plus Meta-Agent — CBO-Agent is the brand domain owner)
-- **Workflow** — a named, repeatable sequence of Agents solving one class of request (10 total; CBO-Agent now sits in all 10, by default in 9 and conditionally in `09-hiring-workflow`)
+- **Workflow** — a named, repeatable sequence of Agents solving one class of request (11 total; CBO-Agent sits in the original 10, by default in 9 and conditionally in `09-hiring-workflow`; `11-problem-solving-decision-workflow` runs the reasoning layer standalone)
 - **Artifact** — a concrete output (PRD, Architecture, BOM, Financial Model, Brand Strategy Brief, Logo System, Design System, etc.)
 - **Memory** — persistent context consumed and updated by Agents over time (13 files: 7 cross-domain, 6 brand-specific)
 - **Reflection Agent / Critic Agent / Planner Agent** — the advanced-layer agents that operate *on* past outputs rather than producing new domain content, including brand outputs

@@ -43,7 +43,7 @@ CFO-Agent     (cost model, unit economics)
 PRD, Robotics System Architecture, Embedded/Firmware Architecture, Mechanical Design & FEA Results, Electronics/PCB Design Review, Fleet/Navigation Software Architecture, Robot Naming & CMF Spec, Human-Robot Interaction Voice/Cue Guide, Manufacturing & NPI Plan, Cost Model, Safety/Reliability Plan.
 
 ## Validation
-`18-stage-gate-skill` (COO-Agent) gates mechanical/electronics/embedded integration before fleet software locks against it — a navigation stack built against a hardware spec that later changes is the single most expensive mistake in this workflow. If `critic-agent/` is active, run it specifically against safety/reliability claims for human-proximate operation before any pilot deployment.
+`18-stage-gate-skill` (COO-Agent) gates mechanical/electronics/embedded integration before fleet software locks against it — a navigation stack built against a hardware spec that later changes is the single most expensive mistake in this workflow. If `critic-agent/` is active, run it specifically against safety/reliability claims for human-proximate operation before any pilot deployment. Hardware trade-offs with real TCO/reliability stakes (e.g. a component or subsystem choice with materially different cost, weight, or failure-rate profiles) should run through `59-problem-solving-decision-modeling-skill` before committing rather than being decided on intuition.
 
 ## Risks
 - Fleet/navigation software (CTO-Agent) developed against a hardware spec that hasn't been validated by CIO-Agent yet

@@ -56,6 +56,10 @@ See [`examples/brand-identity-example.md`](../examples/brand-identity-example.md
 
 See [`examples/brand-narrative-community-example.md`](../examples/brand-narrative-community-example.md) — CBO-Agent sequencing storytelling and copy into a launch-ready website and community presence, then CRO-Agent slotting that into a launch GTM sequence. Trigger with `/story`, `/website`, `/copy`, `/community`, or `/social-assets`.
 
+## Solve a hard problem or make a quantitative decision
+
+See [`examples/decision-modeling-example.md`](../examples/decision-modeling-example.md) — three worked decisions (an AI inference hosting cost trade-off, a SaaS usage-based pricing tier, and a manufacturing inspection-automation call) using `59-problem-solving-decision-modeling-skill` to frame the problem, build a causal/metric model, and select the right formula from `skills/59-problem-solving-decision-modeling-skill/FORMULA_LIBRARY.md` before recommending. Trigger with `/solve`, or run `workflows/11-problem-solving-decision-workflow/WORKFLOW.md` directly. Not a PRD generator — the output is a decision packet, scaled to stakes.
+
 ---
 
 Want a worked example for a scenario not listed here? Open an issue, or contribute one — see [`CONTRIBUTING.md`](../CONTRIBUTING.md).

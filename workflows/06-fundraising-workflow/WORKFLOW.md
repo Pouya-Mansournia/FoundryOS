@@ -40,7 +40,7 @@ CRO-Agent     (pipeline/GTM evidence)
 Fundraising Strategy & Round Structure, Financial Model (unit economics, scenario analysis, runway), Pitch Deck Narrative & Visual Design, Data Room Checklist, Product Scorecard (PMF evidence), Pipeline/GTM Evidence Summary, Risk Analysis.
 
 ## Validation
-`14-validation-skill` (COO-Agent) checks that the narrative CEO-Agent is telling and the numbers CFO-Agent is showing actually agree — a common failure here is a growth story that the burn-rate math doesn't support. If `critic-agent/` is active, have it specifically red-team the pitch narrative for claims an investor's diligence would immediately puncture.
+`14-validation-skill` (COO-Agent) checks that the narrative CEO-Agent is telling and the numbers CFO-Agent is showing actually agree — a common failure here is a growth story that the burn-rate math doesn't support. If `critic-agent/` is active, have it specifically red-team the pitch narrative for claims an investor's diligence would immediately puncture. Any ROI, TCO, or scenario claim in the deck should trace to `59-problem-solving-decision-modeling-skill`'s formula selection (`FORMULA_LIBRARY.md`) rather than an unsupported number — this is the single most common thing diligence catches.
 
 ## Risks
 - Pitching a narrative the unit economics don't yet support

@@ -2,7 +2,7 @@
 
 This registry is the canonical reference for every Agent in FoundryOS. Each Agent owns a fixed set of Skills (see [SKILL_REGISTRY.md](SKILL_REGISTRY.md)) and is the unit the Meta-Agent routes work to. Skill ownership shown here mirrors the live `agents/{Role}-Agent/AGENT.md` files — if the two ever disagree, the AGENT.md files win.
 
-Total: **10 Agents** managing **58 Skills** (one Skill, `35-npi-manufacturing-skill`, is intentionally co-owned by COO-Agent and CIO-Agent), under **1 Meta-Agent**.
+Total: **10 Agents** managing **59 Skills** (one Skill, `35-npi-manufacturing-skill`, is intentionally co-owned by COO-Agent and CIO-Agent), under **1 Meta-Agent**.
 
 ---
 
@@ -24,8 +24,9 @@ Total: **10 Agents** managing **58 Skills** (one Skill, `35-npi-manufacturing-sk
 | `13-corporate-os-skill` | Defines org structure, governance, and board-level reporting; preserves institutional knowledge |
 | `19-raci-meeting-skill` | Assigns ownership across functions and structures recurring reviews/meetings |
 | `40-meta-orchestration-skill` | Orchestrates FoundryOS end to end — phase sequencing, agent coordination, recursive improvement |
+| `59-problem-solving-decision-modeling-skill` | Frames ambiguous problems, builds causal/metric models, and selects reusable quantitative formulas for an evidence-based decision |
 
-**Typical Outputs:** Vision & Mission, Values & Principles, Org Structure, Governance Model, OKRs/KPIs, Board Update Template, RACI Matrix, Decision Log, Lifecycle Orchestration Plan, Full Module Map / System Index
+**Typical Outputs:** Vision & Mission, Values & Principles, Org Structure, Governance Model, OKRs/KPIs, Board Update Template, RACI Matrix, Decision Log, Lifecycle Orchestration Plan, Full Module Map / System Index, Decision Memo & Quantitative Decision Model
 
 **Dependencies:** None upstream — CEO-Agent runs first in any multi-agent flow and sets the strategic framing every other agent aligns to. Every other agent's output should trace back to CEO-Agent's stated strategy.
 

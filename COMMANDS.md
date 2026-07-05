@@ -58,6 +58,14 @@ These activate a specific deliverable or a multi-agent Workflow.
 | `/architecture` | System/software/data/AI architecture | [commands/architecture.md](commands/architecture.md) |
 | `/operations` | SOPs, supply chain, stage gates | [commands/operations.md](commands/operations.md) |
 
+## Reasoning & Decision Commands
+
+This activates the cross-cutting reasoning layer directly — for a decision, not a known artifact.
+
+| Command | Purpose | File |
+|---|---|---|
+| `/solve` | Frame a problem, build its causal/quantitative model, compare options, decide | [commands/solve.md](commands/solve.md) |
+
 ## Brand Commands
 
 These activate CBO-Agent for a specific brand deliverable. `/brand` (above, under Agent Commands) is the broadest entry point — use these 12 when you already know which piece of the Brand OS you need.
@@ -88,3 +96,5 @@ Commands are a shortcut, not a requirement — the Meta-Agent can route a plain-
 Commands compose the same way Agents do. A realistic sequence: `/prd` → `/architecture` → `/finance` → `/critic` → `/planner`. Each command's "Workflows" section tells you which named Workflow in [`workflows/`](workflows) it corresponds to, so you can also just run the Workflow directly if you'd rather see the whole chain at once.
 
 Brand commands compose into the same chains, not a separate track — a typical new-product sequence is `/prd` → `/naming` → `/identity` → `/design-system` → `/architecture` → `/critic` → `/planner`, with naming and identity attaching to the product before CTO-Agent or CIO-Agent build it. For a fundraising pass: `/finance` → `/story` → `/fundraising` → `/critic`, where `/story` supplies the narrative arc the deck is built around.
+
+`/solve` composes differently — it usually runs *before* an artifact command, not after, since it's how you decide whether and what to build in the first place: `/solve` (should we do this, and how) → `/prd` or `/architecture` or `/finance` (build the artifact the decision called for) → `/critic` → `/planner`. It can also run standalone for a decision that never needs a downstream artifact at all.

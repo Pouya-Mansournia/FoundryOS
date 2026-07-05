@@ -16,7 +16,7 @@ CEO-Agent, CPO-Agent, CTO-Agent, CIO-Agent, COO-Agent, CFO-Agent, CRO-Agent, CMO
 ## Dependencies
 | Agent | Upstream (consumes from) | Downstream (feeds) |
 |---|---|---|
-| CEO-Agent | None — runs first | CPO, CBO (identity ratification), CFO (board/investor narrative), all agents (strategic framing) |
+| CEO-Agent | None — runs first | CPO, CBO (identity ratification), CFO (board/investor narrative), all agents (strategic framing; also feeds every agent `59-problem-solving-decision-modeling-skill` whenever the request in their domain is decision-shaped) |
 | CPO-Agent | CEO-Agent | CBO-Agent (what to name/position), CTO/CIO (what to build), CRO/CMO (positioning), CFO (pricing inputs) |
 | CBO-Agent | CPO-Agent (product intent), CEO-Agent (strategic framing) | CTO/CIO (design tokens/CMF to build against), CRO/CMO/CHRO (voice and identity to sell and hire inside) |
 | CTO-Agent | CPO-Agent, CBO-Agent (design tokens, voice) | COO (operating plan), CFO (cost of engineering) |

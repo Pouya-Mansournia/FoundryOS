@@ -28,6 +28,18 @@ Two changes that shipped together deliberately, not as two separate releases: th
 
 Counts after v4: 175 Modules, 58 Skills, 10 Agents, 13 Memory files, 6 Knowledge Graphs, 39 Commands. See [`VERSION.md`](../VERSION.md) for the full table and [`brand/BRAND_OS.md`](../brand/BRAND_OS.md) for the Brand OS charter.
 
+## v4.1 — Problem Solving & Decision Modeling (shipped)
+
+A reusable **reasoning and decision layer** — explicitly not another PRD template. Adds the discipline of framing an ambiguous problem, modeling the current state and its causal chain before proposing a fix, building a metric tree, engineering falsifiable hypotheses, comparing solution options, and selecting the right reusable quantitative formula for the decision at hand.
+
+- **`59-problem-solving-decision-modeling-skill`** — a cross-cutting reasoning engine owned by CEO-Agent that combines with whichever domain Agent(s) a decision touches, rather than replacing them (a robotics decision runs it alongside CIO-Agent, a pricing decision alongside CFO-Agent and CRO-Agent).
+- **A 29-formula reusable quantitative library** (`skills/59-problem-solving-decision-modeling-skill/FORMULA_LIBRARY.md`) — unit economics, funnels, capacity, reliability, quality/yield, experimentation, prioritization (RICE/ICE/WSJF), TCO, and more, each domain-neutral with stated assumptions and misuse warnings.
+- **`11-problem-solving-decision-workflow`** — the reasoning layer the other 10 Workflows call into at their own decision/prioritization/validation gates, and which can also run standalone for a decision that isn't shaped like any of the other 10 request types.
+- **The `/solve` command** — frames the problem and produces a decision packet, never defaulting to a PRD or other fixed artifact.
+- Critic Agent, Planner Agent, and Reflection Agent extended to check formula misuse and causal claims, sequence a decision's staged rollout, and backfill a Decision Record's actual outcome once known.
+
+Counts after v4.1: 179 Modules, 59 Skills, 10 Agents, 11 Workflows, 13 Memory files, 6 Knowledge Graphs, 40 Commands. See [`VERSION.md`](../VERSION.md) for the full table.
+
 ## v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine (planned)
 
 The next major version, not an incremental one — it adds an actual execution layer underneath the knowledge system, rather than extending an existing one. See [`VERSIONING.md`](../VERSIONING.md) for why this is a MAJOR rather than a MINOR.

@@ -37,7 +37,7 @@ CIO-Agent     (only if on-device/edge inference is in scope)
 PRD scoped to a measurable job-to-be-done, Data Strategy (sourcing, labeling, retrieval), AI/MLOps Architecture, AI Voice & Persona Guide, Output Copy Templates, Evaluation Harness & Metrics, Safety/Guardrail Plan, Roadmap (v1 assisted → v2 autonomous, if applicable), Risk Register.
 
 ## Validation
-`14-validation-skill` (COO-Agent) checks that the evaluation metric actually measures the job-to-be-done stated in the PRD — the most common AI-product failure is optimizing a proxy metric (draft quality) instead of the real one (handle time, conversion, safety). If `critic-agent/` is active, run it specifically against hallucination/failure-mode risk before any user-facing launch.
+`14-validation-skill` (COO-Agent) checks that the evaluation metric actually measures the job-to-be-done stated in the PRD — the most common AI-product failure is optimizing a proxy metric (draft quality) instead of the real one (handle time, conversion, safety). If `critic-agent/` is active, run it specifically against hallucination/failure-mode risk before any user-facing launch. Run `59-problem-solving-decision-modeling-skill` on the evaluation-metric choice itself — it's the most common place this workflow substitutes a proxy metric for the real outcome without noticing.
 
 ## Risks
 - Shipping without a held-out evaluation set, so "it looks good in the demo" stands in for real measurement

@@ -48,7 +48,7 @@ CRO-Agent / CMO-Agent   (go-to-market motion, on top of the identity CBO-Agent d
 Problem Statement, ICP & Personas, Competitor/Market Snapshot, PRD, Positioning Statement, Naming Shortlist, Brand Strategy Brief, System or Hardware Architecture, Stage-Gate Roadmap, Financial Model (unit economics + scenario), GTM Plan, Risk Register.
 
 ## Validation
-`14-validation-skill` and `18-stage-gate-skill` (both COO-Agent) check the plan for gaps and contradictions before it's treated as final — specifically, that the PRD's scope, the architecture's feasibility, and the financial model's assumptions all agree with each other. If the `critic-agent/` layer is active, run `CRITIC_AGENT.md` over the Combined Executive Answer as a second, independent stress test before the plan ships.
+`14-validation-skill` and `18-stage-gate-skill` (both COO-Agent) check the plan for gaps and contradictions before it's treated as final — specifically, that the PRD's scope, the architecture's feasibility, and the financial model's assumptions all agree with each other. If the `critic-agent/` layer is active, run `CRITIC_AGENT.md` over the Combined Executive Answer as a second, independent stress test before the plan ships. For any major or irreversible call inside this workflow (build vs. buy, which architecture, which market to enter first), invoke `59-problem-solving-decision-modeling-skill` (or `11-problem-solving-decision-workflow` directly) rather than deciding on unexamined intuition.
 
 ## Risks
 - Locking architecture before the PRD and ICP are validated, forcing a costly rebuild later

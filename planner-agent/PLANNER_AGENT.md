@@ -14,12 +14,14 @@ After a Meta-Agent Result exists and (optionally) after a Critic Agent pass has 
 - Resource allocation — flag where a plan implies headcount, budget, or capacity that hasn't been confirmed available
 - Execution sequences — produce the actual ordered timeline, not just a task list
 - Brand rollout sequencing — make explicit when naming, positioning, or a design-system decision has to lock relative to everything downstream of it (before tooling, before a campaign ships, before a job posting goes external), since a late brand decision is usually the most expensive one in the plan to reverse
+- Decision rollout sequencing — when a run produced a Staged Rollout Plan via `59-problem-solving-decision-modeling-skill`, carry its stages (baseline → instrument → validate data → minimum decision logic → shadow/offline validation → narrow pilot → compare → tune → expand → automate → monitor drift) into the roadmap directly rather than re-deriving a rollout sequence from scratch
 
 ## Inputs
 - The Meta-Agent Result's "Combined Executive Answer," "Risks," and "Next Actions" sections
 - `critic-agent/CRITIC_AGENT.md` findings, if a critique pass has run
 - `memory/technical-memory.md` and `memory/product-memory.md`, for realistic time estimates based on past similar work rather than optimistic defaults
 - `memory/brand-memory.md` and `memory/design-memory.md`, to place naming, positioning, and design-system lock points correctly relative to manufacturing, engineering, and GTM milestones in the same plan
+- The Experiment/Validation Plan and Staged Rollout Plan from `59-problem-solving-decision-modeling-skill`, when present — its stopping rules and rollback triggers should become milestone exit criteria, not be silently dropped when the plan is turned into a roadmap
 
 ## Output
 - **Roadmap** — the sequenced plan from current state to the workflow's Final Outputs

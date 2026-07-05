@@ -37,7 +37,7 @@ CPO-Agent     (positioning check, metrics definition)
 Positioning & Messaging, Campaign Copy & Social Assets, Channel Strategy, Sales Process & Pipeline, Pricing & Packaging, Demand Gen & Campaign Calendar, Funnel/Conversion Metrics, Launch Plan.
 
 ## Validation
-`14-validation-skill` (COO-Agent) checks that the channel strategy and the pricing model are consistent with each other and with the ICP — for example, a self-serve channel paired with an enterprise-only pricing tier is a contradiction this step should catch. If `critic-agent/` is active, run it against the funnel metrics specifically: are they vanity metrics (impressions, signups) or metrics that actually predict revenue (activation, paid conversion)?
+`14-validation-skill` (COO-Agent) checks that the channel strategy and the pricing model are consistent with each other and with the ICP — for example, a self-serve channel paired with an enterprise-only pricing tier is a contradiction this step should catch. If `critic-agent/` is active, run it against the funnel metrics specifically: are they vanity metrics (impressions, signups) or metrics that actually predict revenue (activation, paid conversion)? Channel prioritization itself is a weighted-decision-score problem — run it through `59-problem-solving-decision-modeling-skill` rather than ranking channels on gut feel.
 
 ## Risks
 - Positioning and messaging decided without re-checking the ICP CPO-Agent originally validated

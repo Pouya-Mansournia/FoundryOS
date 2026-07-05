@@ -13,12 +13,14 @@ Immediately after a Meta-Agent Result is produced, before it's treated as final 
 - Stress-test plans by asking "what would have to be true for this to fail" and checking whether that condition is plausible
 - Find missing dependencies — a step in the plan that silently assumes a prior step's output without the plan stating that dependency explicitly
 - Check brand consistency — does this output's naming, claims, voice, and visual references actually match `memory/brand-memory.md`, `memory/voice-memory.md`, and `memory/identity-memory.md`, or does it quietly introduce an off-brand claim, an inconsistent tone, or a logo/color usage that's already been deprecated
+- Check any quantitative decision produced via `59-problem-solving-decision-modeling-skill` for the failure modes it's meant to prevent — double-counted benefits, a formula applied outside its valid use case (see `skills/59-problem-solving-decision-modeling-skill/FORMULA_LIBRARY.md`), a correlation presented as causation, a metric with no denominator or owner, an arbitrary threshold with no stated rationale, or an ROI/TCO claim missing a real cost category
 
 ## Inputs
 - The Meta-Agent Result (or single-Agent output) under review
 - `memory/lessons-learned.md` — known failure patterns to check for by name
 - `memory/decision-log.md` and the relevant domain memory file, to verify claims against actual history rather than taking them at face value
 - `memory/brand-memory.md`, `memory/voice-memory.md`, `memory/identity-memory.md` — to verify any customer-facing output (not just a CBO-Agent output specifically) against what's actually approved, not what merely reads plausible
+- The Decision Record and Confidence Assessment produced by `59-problem-solving-decision-modeling-skill`, when a run used it — every claim in that record should already be labeled fact / calculation / inference / hypothesis / assumption / recommendation; treat an unlabeled claim as a finding on its own
 
 ## Output
 - **Weaknesses** — specific, named gaps in the plan's logic or evidence

@@ -4,6 +4,30 @@ Canonical, publish-ready release notes — paste the relevant section directly i
 
 ---
 
+## v4.1.0 — Problem Solving & Decision Modeling
+
+**Tag:** `v4.1.0`
+
+Adds a reusable **reasoning and decision layer** — deliberately not another PRD template — that frames ambiguous problems, builds causal and metric models, engineers falsifiable hypotheses, compares solution options, and selects reusable quantitative formulas for an evidence-based decision.
+
+### What's new
+
+- **`59-problem-solving-decision-modeling-skill`** (CEO-Agent), a cross-cutting reasoning engine that combines with whichever domain Agent(s) a decision touches instead of replacing them.
+- A **29-formula reusable quantitative library** (`FORMULA_LIBRARY.md`) — unit economics, funnels, capacity, reliability, quality/yield, experimentation, prioritization (RICE/ICE/WSJF), TCO, and more.
+- **`11-problem-solving-decision-workflow`** and the **`/solve` command**, bringing the command total from 39 to 40.
+- Critic, Planner, and Reflection agents extended to check formula misuse and causal claims, sequence staged rollouts, and backfill decision outcomes.
+- A new worked example, `examples/decision-modeling-example.md` (AI infrastructure, SaaS pricing, and manufacturing-automation decisions).
+
+### Final counts
+
+179 Modules · 59 Skills · 10 Agents · 1 Meta-Agent · 11 Workflows · 13 Memory files · 3 Advanced-Layer Agents · 6 Knowledge Graphs · 40 Commands (+ 40 generated Claude Code slash commands) · 9 Examples · 10 Test specs · 11 Onboarding docs.
+
+### Upgrading
+
+Nothing to migrate. If you'd generated `.claude/commands/` locally before this release, re-run `python3 scripts/generate_claude_commands.py` to pick up `/solve`.
+
+---
+
 ## v4.0.0 — Rebrand & Brand Operating System
 
 **Tag:** `v4.0.0`

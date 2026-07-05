@@ -40,7 +40,7 @@ CMO-Agent     (demand, retention)
 PRD, Positioning Statement, In-Product Voice Guidelines, Multi-Tenant SaaS Architecture, Data Model, Analytics/Metrics Dashboard, Pricing & Packaging, GTM Plan, Campaign Calendar, Onboarding & Retention Plan.
 
 ## Validation
-`14-validation-skill` (COO-Agent) checks that the pricing model and the architecture's cost-to-serve don't contradict each other — a common failure mode is pricing usage-based on a feature CTO-Agent built with flat infrastructure cost. If `critic-agent/` is active, have `CRITIC_AGENT.md` specifically stress-test the pricing-vs-cost-to-serve assumption before launch.
+`14-validation-skill` (COO-Agent) checks that the pricing model and the architecture's cost-to-serve don't contradict each other — a common failure mode is pricing usage-based on a feature CTO-Agent built with flat infrastructure cost. If `critic-agent/` is active, have `CRITIC_AGENT.md` specifically stress-test the pricing-vs-cost-to-serve assumption before launch. Run `59-problem-solving-decision-modeling-skill` at the pricing-tier decision itself — a threshold decision (per-seat vs. usage-based) deserves the same rationale/sensitivity treatment as any other threshold, not an intuition call.
 
 ## Risks
 - Architecture designed for one tenant pattern (e.g., shared schema) when the GTM motion implies another (e.g., enterprise needing isolated data) — surfaces late and expensively if not checked here

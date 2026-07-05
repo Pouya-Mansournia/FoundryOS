@@ -20,7 +20,7 @@
 
 **Tutorial 7 — Closing the loop with Memory.** After a real outcome happens (a launch, a hire, a pricing change), run `/reflection` and check that it writes something concrete into `memory/lessons-learned.md` — not a generic platitude, but a specific, falsifiable lesson tied to what actually happened. Then start a new, unrelated session and confirm the system references that lesson unprompted the next time a similar decision comes up.
 
-**Tutorial 8 — Adding a Skill.** Pick a real gap in your own workflow that none of the 58 Skills cover well. Draft a new `SKILL.md` (purpose, source modules, output) following the format in any existing `skills/{NN}-{name}-skill/SKILL.md`, add it to the right Agent's `AGENT.md`, and update `registry/SKILL_REGISTRY.md`. This is the same process described in [`CONTRIBUTING.md`](../CONTRIBUTING.md).
+**Tutorial 8 — Adding a Skill.** Pick a real gap in your own workflow that none of the 59 Skills cover well. Draft a new `SKILL.md` (purpose, source modules, output) following the format in any existing `skills/{NN}-{name}-skill/SKILL.md`, add it to the right Agent's `AGENT.md`, and update `registry/SKILL_REGISTRY.md`. This is the same process described in [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 
 **Tutorial 9 — Building a new command.** Once you've used the system for a while, you'll notice a request shape you run often that doesn't have a dedicated command. Write a new `commands/{name}.md` following the template in any existing command file, add it to [`COMMANDS.md`](../COMMANDS.md)'s table, and (if using Claude Code) copy it into `.claude/commands/`.
 

@@ -4,7 +4,7 @@
 Maps how the concrete deliverables Workflows produce depend on each other — which artifact is always built from another, so a downstream artifact built before its upstream dependency is stable is a structural warning sign, not just a sequencing preference.
 
 ## Nodes
-Problem Statement, ICP & Personas, Competitor/Market Snapshot, PRD, Positioning Statement, Naming Shortlist, Brand Strategy Brief, Logo System & Brand Book, Design System & CMF Spec, Voice & Tone Guide, System/SaaS/AI Architecture, Hardware/Robotics Architecture (Mechanical/Electronics/Embedded), BOM, Manufacturing/NPI Plan, Financial Model, Pricing & Packaging, Campaign Copy & Social Assets, GTM Plan, Pitch Deck/Investor Narrative (with Narrative Arc), Org Structure, Employer Brand & Internal Voice Guide, Role Definition, Risk Register, Product Scorecard, Evaluation Metrics (AI), Roadmap, Brand Roadmap.
+Problem Statement, ICP & Personas, Competitor/Market Snapshot, PRD, Positioning Statement, Naming Shortlist, Brand Strategy Brief, Logo System & Brand Book, Design System & CMF Spec, Voice & Tone Guide, System/SaaS/AI Architecture, Hardware/Robotics Architecture (Mechanical/Electronics/Embedded), BOM, Manufacturing/NPI Plan, Financial Model, Pricing & Packaging, Campaign Copy & Social Assets, GTM Plan, Pitch Deck/Investor Narrative (with Narrative Arc), Org Structure, Employer Brand & Internal Voice Guide, Role Definition, Risk Register, Product Scorecard, Evaluation Metrics (AI), Roadmap, Brand Roadmap, **Decision Memo** (with its Problem Frame, Causal Model, Metric Tree, Hypothesis Register, Formula Sheet, Decision Matrix, Scenario Model, Experiment Plan, and Post-Decision Review).
 
 ## Relationships
 - **PRD** is the hinge artifact — almost every downstream artifact in a product workflow depends on it, and it itself depends on Problem Statement + ICP
@@ -16,6 +16,7 @@ Problem Statement, ICP & Personas, Competitor/Market Snapshot, PRD, Positioning 
 - **Campaign Copy & Social Assets** depends on Positioning Statement and Voice & Tone Guide, and itself feeds GTM Plan — positioning locked once, expressed consistently across every channel
 - **Employer Brand & Internal Voice Guide** depends on Brand Strategy Brief and feeds Role Definition whenever a posting is externally visible
 - **Roadmap** can refer to a product roadmap (CPO-Agent, depends on PRD), a strategic roadmap (CEO-Agent, depends on Vision/Strategy), or a **Brand Roadmap** (CBO-Agent, depends on Brand Strategy Brief + Positioning) — three related but distinct nodes; check which one a workflow means
+- **Decision Memo** is not downstream of the other artifacts the way they're downstream of each other — it's produced by `59-problem-solving-decision-modeling-skill` directly off the raw Problem Statement, *before* a PRD, Architecture, or Financial Model necessarily exists, and its own Decision Matrix/Formula Sheet frequently becomes an input those other artifacts are built against (e.g. a build-vs-buy Decision Memo determines whether an Architecture node gets built at all)
 
 ## Dependencies
 ```

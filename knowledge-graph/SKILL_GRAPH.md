@@ -1,10 +1,10 @@
 # Skill Graph
 
 ## Purpose
-Maps how the 58 Skills relate to each other within and across the Agents that own them — which Skills form a chain inside one Agent's work, which Skills are cross-cutting and used by many Agents, and where the one shared-ownership Skill sits.
+Maps how the 59 Skills relate to each other within and across the Agents that own them — which Skills form a chain inside one Agent's work, which Skills are cross-cutting and used by many Agents, and where the one shared-ownership Skill sits.
 
 ## Nodes
-58 Skills, grouped by owning Agent per `registry/SKILL_REGISTRY.md`. Eight Skills are cross-cutting (used in service of multiple Agents' work rather than belonging to one domain): `14-validation-skill`, `15-framework-library-skill`, `16-artifact-template-skill`, `17-diagram-skill`, `25-prompt-loop-skill`, `26-knowledge-graph-skill`, `28-risk-management-skill`, `40-meta-orchestration-skill`. Seventeen Skills (`42` through `58`) belong to CBO-Agent's brand domain.
+59 Skills, grouped by owning Agent per `registry/SKILL_REGISTRY.md`. Nine Skills are cross-cutting (used in service of multiple Agents' work rather than belonging to one domain): `14-validation-skill`, `15-framework-library-skill`, `16-artifact-template-skill`, `17-diagram-skill`, `25-prompt-loop-skill`, `26-knowledge-graph-skill`, `28-risk-management-skill`, `40-meta-orchestration-skill`, `59-problem-solving-decision-modeling-skill`. Seventeen Skills (`42` through `58`) belong to CBO-Agent's brand domain.
 
 ## Relationships
 - **Within-Agent chains** — Skills owned by the same Agent are typically used in sequence, not independently. Example, CPO-Agent: `01-discovery-skill → 02-market-research-skill → 03-strategy-skill → 04-prd-skill → 10-analytics-skill → 27-product-scorecard-skill`
@@ -12,6 +12,7 @@ Maps how the 58 Skills relate to each other within and across the Agents that ow
 - **Shared-ownership Skill** — `35-npi-manufacturing-skill` is the one Skill with two owning Agents (CIO-Agent and COO-Agent) and should be invoked once, jointly, not duplicated when both Agents are in the execution set
 - **Brand chain** — CBO-Agent's 17 Skills form their own within-Agent sequence, e.g. `42-brand-strategy-skill → 47-naming-skill / 48-positioning-skill → 43-brand-book-skill → 46-logo-system-skill → 44-design-system-skill → 53-voice-tone-skill → 51-storytelling-skill / 52-copywriting-skill → 49-community-skill / 50-social-assets-skill → 58-brand-roadmap-skill` — strategy and naming come first, the rest are downstream expressions of it
 - **Brand reaches into other Agents' chains**, the only domain besides the shared NPI skill to do so deliberately: `53-voice-tone-skill` is invoked by CTO-Agent/CPO-Agent for in-product copy, `54-color-psychology-skill` and CMF-adjacent brand skills by CIO-Agent for physical products, and `52-copywriting-skill`/`50-social-assets-skill` by CMO-Agent for campaign content
+- **`59-problem-solving-decision-modeling-skill` reaches into every Agent's chain** — it's owned by CEO-Agent but activates alongside whichever domain Skill(s) a decision touches (e.g. with `23-robotics-product-skill` for a robotics feasibility call, with `07-finance-skill` and `36-pricing-sales-skill` for a pricing call), the same cross-cutting pattern brand uses but for reasoning rather than identity
 
 ## Dependencies
 | Skill | Depends On (output of) |
@@ -32,6 +33,7 @@ Maps how the 58 Skills relate to each other within and across the Agents that ow
 | `53-voice-tone-skill` | `42-brand-strategy-skill` (voice is a strategy expression) and feeds `52-copywriting-skill` |
 | `57-brand-assets-management-skill` | `46-logo-system-skill` and `44-design-system-skill` (the asset library packages and version-controls what those two skills produce) |
 | `58-brand-roadmap-skill` | All 16 other brand Skills (it sequences the rollout of everything CBO-Agent has already decided) |
+| `59-problem-solving-decision-modeling-skill` | None upstream — runs on the raw request itself; whichever domain Skill a decision touches consumes *its* output (Decision Memo, Metric Tree, Formula Sheet), not the reverse |
 
 ## Graph Structure
 ```
@@ -47,6 +49,8 @@ Discovery & Strategy        Build/Design               Operate & Scale         M
                       15-framework-library · 16-artifact-template · 17-diagram
                       25-prompt-loop · 26-knowledge-graph · 40-meta-orchestration
                       12-company-bible · 19-raci-meeting
+                      59-problem-solving-decision-modeling (reasoning layer,
+                      combines with whichever domain Skill the decision touches)
 
                       Brand & Identity (CBO-Agent, 17 Skills):
                       42-brand-strategy ─┬─ 47-naming           ─┐

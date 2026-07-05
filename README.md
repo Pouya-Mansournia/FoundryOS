@@ -17,15 +17,15 @@ It's designed to be dropped into any AI assistant that can read a project's file
 ## Architecture
 
 ```
-175 Modules
+179 Modules
       ↓
- 58 Skills
+ 59 Skills
       ↓
  10 Agents
       ↓
  1 Meta-Agent
       ↓
- 10 Workflows
+ 11 Workflows
       ↓
  Memory
       ↓
@@ -39,7 +39,7 @@ It's designed to be dropped into any AI assistant that can read a project's file
       ↓
  Brand Intelligence
       ↓
- 39 Commands
+ 40 Commands
       ↓
  Artifacts
 ```
@@ -52,19 +52,19 @@ The actual runtime loop those middle five (Memory → Reflection → Critic → 
 
 And the diagram ends at **Artifacts**, not Commands — Commands are how you trigger the system, Artifacts are what you actually walk away with (a PRD, a BOM, a financial model, a Brand Strategy Brief). Earlier versions of this diagram stopped at Commands, which described the entry point but not the output; see [`knowledge-graph/ARTIFACT_GRAPH.md`](knowledge-graph/ARTIFACT_GRAPH.md) for how Artifacts map back to the Workflows and Agents that produce them.
 
-**Modules** are the atomic layer — 175 self-contained units of domain knowledge (e.g. `01_Discovery_OS`, `35_AI_Architecture_OS`, `42_Regulatory_OS`, `58_Brand_Roadmap_OS`), numbered `00`–`173` with one legacy duplicate at `99` (flagged in [`AUDIT_REPORT.md`](AUDIT_REPORT.md)). Modules are never called directly; they're the raw material Skills are built from.
+**Modules** are the atomic layer — 179 self-contained units of domain knowledge (e.g. `01_Discovery_OS`, `35_AI_Architecture_OS`, `42_Regulatory_OS`, `58_Brand_Roadmap_OS`, `176_Solution_Formula_OS`), numbered `00`–`177` with one legacy duplicate at `99` (flagged in [`AUDIT_REPORT.md`](AUDIT_REPORT.md)). Modules are never called directly; they're the raw material Skills are built from.
 
-**Skills** (58) are reusable capabilities, each compiled from 3–12 Modules — `04-prd-skill`, `31-ai-architecture-skill`, `41-mechatronics-skill`, `46-logo-system-skill`. Every Skill has a defined input, source Modules, and output (see [`registry/SKILL_REGISTRY.md`](registry/SKILL_REGISTRY.md)). Seventeen of the 58 (`42` through `58`) are CBO-Agent's brand domain.
+**Skills** (59) are reusable capabilities, each compiled from 3–12 Modules — `04-prd-skill`, `31-ai-architecture-skill`, `41-mechatronics-skill`, `46-logo-system-skill`. Every Skill has a defined input, source Modules, and output (see [`registry/SKILL_REGISTRY.md`](registry/SKILL_REGISTRY.md)). Seventeen of the 59 (`42` through `58`) are CBO-Agent's brand domain; one, `59-problem-solving-decision-modeling-skill`, is a cross-cutting reasoning engine (owned by CEO-Agent) rather than a domain — it frames a problem, builds a causal/metric model, and selects reusable quantitative formulas for a decision, and combines with whichever domain Skill(s) that decision touches instead of replacing them.
 
 **Agents** (10) are C-suite-shaped owners of a cluster of Skills — CEO, CPO, CTO, CIO, COO, CFO, CRO, CMO, CBO, CHRO (see [`registry/AGENT_REGISTRY.md`](registry/AGENT_REGISTRY.md)). One Skill, `35-npi-manufacturing-skill`, is intentionally co-owned by CIO-Agent and COO-Agent because hardware NPI genuinely sits at the intersection of engineering and operations. CBO-Agent (Chief Brand Officer) sits directly after CPO-Agent in the default execution order, attaching name, voice, and visual identity to a product before anyone builds or sells it.
 
-**Meta-Agent** (1) reads a request, classifies it, decides which Agent(s) and Skill(s) should run, sequences them, and merges their output into one executive answer — flagging contradictions and missing inputs instead of guessing silently. It auto-activates CBO-Agent on any request that signals brand, identity, naming, logo, tagline, voice, design system, community, or visual-identity intent, even if the word "brand" never appears. Full spec: [`meta-agent/META_AGENT.md`](meta-agent/META_AGENT.md).
+**Meta-Agent** (1) reads a request, classifies it, decides which Agent(s) and Skill(s) should run, sequences them, and merges their output into one executive answer — flagging contradictions and missing inputs instead of guessing silently. It auto-activates CBO-Agent on any request that signals brand, identity, naming, logo, tagline, voice, design system, community, or visual-identity intent, even if the word "brand" never appears, and combines `59-problem-solving-decision-modeling-skill` into any request that's actually a decision ("should we," "which option," "is this worth it") rather than a request for a known artifact. Full spec: [`meta-agent/META_AGENT.md`](meta-agent/META_AGENT.md).
 
-**Workflows** (10) are named, reusable sequences for the most common request shapes — new product, SaaS, hardware, AI, robotics, fundraising, GTM, company building, hiring, strategic planning. CBO-Agent runs inside all 10 by default in 9 of them; `09-hiring-workflow` treats it as conditional. See [`workflows/`](workflows).
+**Workflows** (11) are named, reusable sequences for the most common request shapes — new product, SaaS, hardware, AI, robotics, fundraising, GTM, company building, hiring, strategic planning, and problem solving/decision modeling. CBO-Agent runs inside the original 10 by default in 9 of them (`09-hiring-workflow` treats it as conditional); the 11th, `11-problem-solving-decision-workflow`, is the reasoning layer those ten call into at their own decision gates and can also run standalone. See [`workflows/`](workflows).
 
 **Advanced Layer** — Memory (13 persistent files: 7 cross-domain, 6 brand-specific), Reflection Agent, Critic Agent, Planner Agent, and a Knowledge Graph (6 files, including [`BRAND_GRAPH.md`](knowledge-graph/BRAND_GRAPH.md)) — lets the system accumulate context and self-critique across runs instead of starting from zero each time, including brand consistency, voice consistency, and narrative quality. Full explanation: [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md).
 
-**Commands** (39) expose every Agent, Workflow, and Advanced-Layer component as a short slash command — `/cpo`, `/saas`, `/critic`, `/fundraising`, `/brand`, `/logo`, `/voice`. A command is a pointer into logic that already exists; it adds no new behavior. See [`COMMANDS.md`](COMMANDS.md).
+**Commands** (40) expose every Agent, Workflow, and Advanced-Layer component as a short slash command — `/cpo`, `/saas`, `/critic`, `/fundraising`, `/brand`, `/logo`, `/voice`, `/solve`. A command is a pointer into logic that already exists; it adds no new behavior. See [`COMMANDS.md`](COMMANDS.md).
 
 **Artifacts** are the concrete deliverables a run produces — PRD, System Architecture, BOM, Financial Model, GTM Plan, Roadmap, Brand Strategy Brief, Logo System, Design System, and so on. Every Artifact traces back to the Workflow and Agent(s) that produced it; see [`knowledge-graph/ARTIFACT_GRAPH.md`](knowledge-graph/ARTIFACT_GRAPH.md).
 
@@ -106,11 +106,11 @@ See [`GETTING_STARTED.md`](GETTING_STARTED.md) for the 30-second / 5-minute / 30
 
 ## Commands
 
-39 slash commands cover every Agent, Workflow, and Advanced-Layer component — `/cpo`, `/cto`, `/cio`, `/coo`, `/cfo`, `/cro`, `/cmo`, `/chro`, `/ceo`, `/planner`, `/critic`, `/reflection`, `/prd`, `/gtm`, `/fundraising`, `/startup`, `/company-builder`, `/saas`, `/hardware`, `/robotics`, `/ai-product`, `/strategy`, `/market`, `/finance`, `/architecture`, `/operations`, `/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`. Full table and usage: [`COMMANDS.md`](COMMANDS.md).
+40 slash commands cover every Agent, Workflow, and Advanced-Layer component — `/cpo`, `/cto`, `/cio`, `/coo`, `/cfo`, `/cro`, `/cmo`, `/chro`, `/ceo`, `/planner`, `/critic`, `/reflection`, `/prd`, `/gtm`, `/fundraising`, `/startup`, `/company-builder`, `/saas`, `/hardware`, `/robotics`, `/ai-product`, `/strategy`, `/market`, `/finance`, `/architecture`, `/operations`, `/solve`, `/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`. Full table and usage: [`COMMANDS.md`](COMMANDS.md).
 
 ### Claude Code slash commands
 
-The `commands/` folder above is documentation — Purpose, Activated Agents, Activated Skills, Workflows, Output, Example — written for a human (or any assistant) to read and follow. `.claude/commands/` is the executable layer on top of it: 39 matching files, in Claude Code's native slash-command format, that ship pre-built in this repo. Open the repo in Claude Code and `/cpo`, `/robotics`, `/brand`, and the rest just work — no setup step.
+The `commands/` folder above is documentation — Purpose, Activated Agents, Activated Skills, Workflows, Output, Example — written for a human (or any assistant) to read and follow. `.claude/commands/` is the executable layer on top of it: 40 matching files, in Claude Code's native slash-command format, that ship pre-built in this repo. Open the repo in Claude Code and `/cpo`, `/robotics`, `/brand`, and the rest just work — no setup step.
 
 Each generated file is a thin wrapper, not a duplicate. It instructs Claude Code to read the relevant Agent file(s) (and `meta-agent/META_AGENT.md` for multi-Agent commands) live off disk before answering, carries the full command spec inline, and points to the Meta-Agent merge pattern in [`QUICKSTART.md`](QUICKSTART.md#worked-example) for commands that activate more than one Agent. This keeps `.claude/commands/` honest as the system evolves — it reads the Agent/Meta-Agent files as they exist today rather than freezing a snapshot of their content at generation time.
 
@@ -138,7 +138,7 @@ FoundryOS/
 │   │   └── feature_request.md   ← new Skill / Agent / Workflow / Command proposal
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .claude/
-│   └── commands/                ← 39 pre-built Claude Code slash commands (generated from commands/)
+│   └── commands/                ← 40 pre-built Claude Code slash commands (generated from commands/)
 │       └── {name}.md
 ├── ADVANCED_LAYER.md            ← how Memory/Reflection/Critic/Planner/Graph interact
 ├── VERSION.md                   ← current version + structural roadmap
@@ -159,8 +159,9 @@ FoundryOS/
 │   └── WINDSURF_SETUP.md
 ├── assets/                      ← rendered visuals once produced — see docs/SHOWCASE.md for specs
 ├── brand/                       ← brand/BRAND_OS.md — the Brand OS charter and how it threads through every layer
-├── skills/                      ← 58 Skills, each compiled from a Modules cluster (17 are CBO-Agent's brand domain)
-│                                   (no standalone modules/ folder — 175 module files live inside skills/{NN}-{name}-skill/)
+├── skills/                      ← 59 Skills, each compiled from a Modules cluster (17 are CBO-Agent's brand domain,
+│                                   1 — `59-problem-solving-decision-modeling-skill` — is a cross-cutting reasoning layer)
+│                                   (no standalone modules/ folder — 179 module files live inside skills/{NN}-{name}-skill/)
 │   └── {NN}-{name}-skill/
 │       ├── SKILL.md
 │       └── (source module files)
@@ -170,7 +171,7 @@ FoundryOS/
 │       └── (copies of owned skill folders)
 ├── meta-agent/
 │   └── META_AGENT.md            ← the orchestrator
-├── workflows/                   ← 10 named, reusable multi-agent sequences
+├── workflows/                   ← 11 named, reusable multi-agent sequences (10 product/company-shaped + 1 reasoning layer)
 │   └── {NN}-{name}-workflow/
 │       └── WORKFLOW.md
 ├── memory/                      ← 13 persistent context files (7 cross-domain, 6 brand-specific)
@@ -181,7 +182,7 @@ FoundryOS/
 ├── planner-agent/
 │   └── PLANNER_AGENT.md
 ├── knowledge-graph/              ← 6 dependency-map files (incl. ARTIFACT_GRAPH.md, BRAND_GRAPH.md)
-├── commands/                     ← 39 slash-command definitions
+├── commands/                     ← 40 slash-command definitions
 │   └── {name}.md
 ├── scripts/
 │   └── generate_claude_commands.py  ← regenerates .claude/commands/ from commands/
@@ -194,8 +195,10 @@ FoundryOS/
 │   ├── saas-dashboard-example.md
 │   ├── investor-readiness-example.md
 │   ├── manufacturing-plan-example.md
+│   ├── team-scaling-example.md
 │   ├── brand-identity-example.md
-│   └── brand-narrative-community-example.md
+│   ├── brand-narrative-community-example.md
+│   └── decision-modeling-example.md
 └── tests/                        ← routing, agent-selection, and brand-consistency test specs
 ```
 
@@ -213,6 +216,7 @@ FoundryOS/
 | [`team-scaling-example.md`](examples/team-scaling-example.md) | Designing org structure, hiring system, and culture at 15 people | CEO, COO, CHRO, CBO, CFO |
 | [`brand-identity-example.md`](examples/brand-identity-example.md) | Building a brand, name, logo, and design system from zero | CEO, CBO |
 | [`brand-narrative-community-example.md`](examples/brand-narrative-community-example.md) | Website, launch narrative, and community for an open-source launch | CBO, CRO |
+| [`decision-modeling-example.md`](examples/decision-modeling-example.md) | Three worked decisions (AI inference hosting cost trade-off, SaaS pricing tier, manufacturing inspection automation) using `59-problem-solving-decision-modeling-skill` | CEO, CTO, CFO, COO |
 
 See [`docs/EXAMPLES.md`](docs/EXAMPLES.md) for an indexed guide, including two scenarios (startup-building, GTM) shown as command walkthroughs rather than full example files.
 
@@ -224,7 +228,7 @@ _Coming soon — this is a markdown-only system with no UI of its own, so "scree
 
 ## Roadmap
 
-v1 shipped the core four layers (Modules → Skills → Agents → Meta-Agent). v2 added Workflows and the Advanced Layer. v3 added Commands and a full onboarding doc set. v4 is the FoundryOS rename, the `docs/`/`assets/` restructure, the Commands → Artifacts architecture fix, and a full Brand Operating System (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, and 13 brand Commands) integrated into every layer rather than appended as a tenth Agent that runs in isolation. v5.0.0 (planned) is a Runtime, MCP/tool integration, and execution engine — autonomous, closed-loop workflows that don't need a human to re-prompt between steps. Full detail: [`docs/ROADMAP.md`](docs/ROADMAP.md). Versioning policy — what counts as major/minor/patch, and why the public release is v4.0.0 rather than v1.0.0: [`VERSIONING.md`](VERSIONING.md). Per-version publish notes: [`RELEASE_NOTES.md`](RELEASE_NOTES.md). Full v4.0 audit: [`AUDIT_REPORT.md`](AUDIT_REPORT.md). Consolidated final audit, auto-fix report, and GitHub publish checklist: [`FINAL_RELEASE_AUDIT.md`](FINAL_RELEASE_AUDIT.md).
+v1 shipped the core four layers (Modules → Skills → Agents → Meta-Agent). v2 added Workflows and the Advanced Layer. v3 added Commands and a full onboarding doc set. v4 is the FoundryOS rename, the `docs/`/`assets/` restructure, the Commands → Artifacts architecture fix, and a full Brand Operating System (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, and 13 brand Commands) integrated into every layer rather than appended as a tenth Agent that runs in isolation. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — `59-problem-solving-decision-modeling-skill` (CEO-Agent), a 29-formula reusable quantitative library, `11-problem-solving-decision-workflow`, and the `/solve` command — that frames ambiguous problems, builds causal and metric models, and selects the right quantitative formula for a decision instead of defaulting every request to a PRD. v5.0.0 (planned) is a Runtime, MCP/tool integration, and execution engine — autonomous, closed-loop workflows that don't need a human to re-prompt between steps. Full detail: [`docs/ROADMAP.md`](docs/ROADMAP.md). Versioning policy — what counts as major/minor/patch, and why the public release is v4.0.0 rather than v1.0.0: [`VERSIONING.md`](VERSIONING.md). Per-version publish notes: [`RELEASE_NOTES.md`](RELEASE_NOTES.md). Full v4.0 audit: [`AUDIT_REPORT.md`](AUDIT_REPORT.md). Consolidated final audit, auto-fix report, and GitHub publish checklist: [`FINAL_RELEASE_AUDIT.md`](FINAL_RELEASE_AUDIT.md).
 
 ## Community
 

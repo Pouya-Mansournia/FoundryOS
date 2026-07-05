@@ -40,7 +40,7 @@ CFO-Agent     (budget reality check)
 Org Structure & Reporting Lines, Governance Model & Board Cadence, RACI Matrix, Operating Cadence & SOPs, KPI/OKR Framework, Culture & Operating Values, Employer Brand & Internal Voice Guide, Budget Reality Check.
 
 ## Validation
-`14-validation-skill` (COO-Agent) checks that the proposed org structure and operating cadence are actually affordable against CFO-Agent's budget — a governance model that assumes headcount the company hasn't funded is the most common failure here. If `critic-agent/` is active, run it against whether the proposed structure matches the company's actual stage, not an aspirational one two stages ahead.
+`14-validation-skill` (COO-Agent) checks that the proposed org structure and operating cadence are actually affordable against CFO-Agent's budget — a governance model that assumes headcount the company hasn't funded is the most common failure here. If `critic-agent/` is active, run it against whether the proposed structure matches the company's actual stage, not an aspirational one two stages ahead. Structural trade-offs (centralize vs. federate a function, build vs. outsource a capability) belong in `59-problem-solving-decision-modeling-skill`'s options matrix, not decided by precedent alone.
 
 ## Risks
 - Designing governance and process for the company's *next* stage instead of its current one, adding overhead before it's earned

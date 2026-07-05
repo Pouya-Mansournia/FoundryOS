@@ -34,7 +34,7 @@ brand/           brand/BRAND_OS.md — the Brand OS charter
 
 - **Markdown only.** No code, no executables.
 - **Stay generic.** Never name a specific company, product, or brand — every example should be written so it's obviously reusable. If you need a placeholder, use "the company" or a generic descriptor like "a robotics startup."
-- **Match the existing format exactly.** A new `SKILL.md` should look like the other 58 (this includes the 17 brand Skills, `42-brand-strategy-skill` through `58-brand-roadmap-skill` — same template, no special-casing). A new `commands/*.md` should follow the Purpose / Activated Agents / Activated Skills / Workflows / Output / Example template used by all 39 existing commands.
+- **Match the existing format exactly.** A new `SKILL.md` should look like the other 59 (this includes the 17 brand Skills, `42-brand-strategy-skill` through `58-brand-roadmap-skill`, and the cross-cutting `59-problem-solving-decision-modeling-skill` — same template, no special-casing). A new `commands/*.md` should follow the Purpose / Activated Agents / Activated Skills / Workflows / Output / Example template used by all 40 existing commands.
 - **Use diagrams and arrows where they clarify a sequence or dependency** — see any `knowledge-graph/*.md` file for the house style (ASCII arrows, not embedded images).
 
 ## How to add a Skill
@@ -46,7 +46,7 @@ brand/           brand/BRAND_OS.md — the Brand OS charter
 
 ## How to add an Agent
 
-Think twice — the C-suite structure is intentionally stable (10 Agents as of this writing), and Skill ownership has been reassigned across existing Agents before rather than requiring a new one. CBO-Agent is the precedent for when a new Agent actually earns its place: brand/identity work didn't sit cleanly inside CPO-Agent's or CMO-Agent's mandate, so it got its own Agent and its own Skill range (`42`-`58`) instead of being grafted onto either. If a new Agent is genuinely warranted (a new mandate with no existing owner and no clean overlap), give it a non-overlapping mandate, add `agents/{Role}-Agent/AGENT.md`, and update `registry/AGENT_REGISTRY.md` plus the Meta-Agent's routing logic in `meta-agent/META_AGENT.md`.
+Think twice — the C-suite structure is intentionally stable (10 Agents as of this writing), and Skill ownership has been reassigned across existing Agents before rather than requiring a new one. CBO-Agent is the precedent for when a new Agent actually earns its place: brand/identity work didn't sit cleanly inside CPO-Agent's or CMO-Agent's mandate, so it got its own Agent and its own Skill range (`42`-`58`) instead of being grafted onto either. Conversely, `59-problem-solving-decision-modeling-skill` is the precedent for when a new *capability* does **not** warrant a new Agent — it's cross-cutting by nature (activates alongside whatever domain Agent a decision touches), so it was added as a Skill under the most fitting existing Agent (CEO-Agent, alongside `40-meta-orchestration-skill`) instead of becoming an 11th Agent. If a new Agent is genuinely warranted (a new mandate with no existing owner and no clean overlap), give it a non-overlapping mandate, add `agents/{Role}-Agent/AGENT.md`, and update `registry/AGENT_REGISTRY.md` plus the Meta-Agent's routing logic in `meta-agent/META_AGENT.md`.
 
 ## How to add a Command
 

@@ -32,7 +32,7 @@ CEO-Agent     (ownership/accountability check against RACI, culture fit)
 Role Definition & Job Description, Interview Loop & Panel Structure, Hiring Scorecard, Compensation & Leveling Reference, 30/60/90-Day Performance Plan.
 
 ## Validation
-`14-validation-skill` (COO-Agent) is invoked only if the new role changes an existing operating process or RACI ownership — most hires don't need it. If `critic-agent/` is active, run it against the scorecard specifically: does it measure what the role actually needs, or generic competencies copied from a template?
+`14-validation-skill` (COO-Agent) is invoked only if the new role changes an existing operating process or RACI ownership — most hires don't need it. If `critic-agent/` is active, run it against the scorecard specifically: does it measure what the role actually needs, or generic competencies copied from a template? `59-problem-solving-decision-modeling-skill` is invoked only for a genuinely contested hiring call (e.g. build this function in-house vs. contract it) — most individual hires don't need the full reasoning engine.
 
 ## Risks
 - Interview loop tests for skills the role doesn't actually need day one, lengthening time-to-hire for no signal gained

@@ -4,9 +4,9 @@
 One central orchestrator for the FoundryOS. It does not own domain content itself -- it reads the user's request, decides which of the 10 Agents (and which Skills underneath them) need to run, runs them in the right order, and merges their outputs into a single executive answer. It is the layer that sits above `agents/` and turns ten specialists into one coherent voice.
 
 ```
-175 Modules
+179 Modules
         ↓
- 58 Skills
+ 59 Skills
         ↓
  10 Agents
         ↓
@@ -20,7 +20,7 @@ The Meta-Agent does not hardcode skill lists. Agent-to-skill ownership changes o
 
 | Agent | Mandate | Current Coverage |
 |---|---|---|
-| CEO-Agent | Company identity, governance, and the orchestration layer that keeps every agent's output aligned with one strategy and one narrative. | 4 Skills / 25 Modules |
+| CEO-Agent | Company identity, governance, and the orchestration layer that keeps every agent's output aligned with one strategy and one narrative. | 5 Skills / 29 Modules |
 | CPO-Agent | The product: customer discovery, market position, product strategy, requirements, and the scorecards that prove product-market fit. | 7 Skills / 36 Modules |
 | CTO-Agent | The technology stack: system and software architecture, AI/ML systems, and engineering execution. | 11 Skills / 42 Modules |
 | CIO-Agent | Cross-domain hardware innovation: hardware and robotics product design, mechanical/electronics/embedded engineering, mechatronics integration, and the NPI handoff into shippable hardware. | 7 Skills / 28 Modules |
@@ -51,7 +51,7 @@ Note: `35-npi-manufacturing-skill` is intentionally owned by both COO-Agent and 
 
 | Agent | Use For |
 |---|---|
-| **CEO-Agent** | Company strategy, vision, mission, positioning, business model, strategic trade-offs, long-term direction, board-level decisions, founder-level decisions. |
+| **CEO-Agent** | Company strategy, vision, mission, positioning, business model, strategic trade-offs, long-term direction, board-level decisions, founder-level decisions, root-cause analysis, quantitative decision modeling (ROI/formula-based trade-offs), option comparison, hypothesis and experiment design. |
 | **CPO-Agent** | Product discovery, ICP, personas, JTBD, PRD, roadmap, product analytics, PMF, user journey, product scorecard, product strategy. |
 | **CTO-Agent** | Software architecture, SaaS architecture, data architecture, AI architecture, APIs, cloud, scalability, security, system design, technical documentation, engineering systems. |
 | **CIO-Agent** | Robotics, mechatronics, embedded systems, electronics, mechanical design, hardware architecture, sensors, actuators, control systems, manufacturing readiness, NPI, technical innovation. |
@@ -76,8 +76,21 @@ Note: `35-npi-manufacturing-skill` is intentionally owned by both COO-Agent and 
 | Technical architecture | CTO + (CIO if hardware/robotics is involved) |
 | New brand or rebrand | CBO + CEO + CPO + CRO |
 | Logo, naming, or visual identity | CBO (standalone — rarely needs a second agent) |
+| Root-cause analysis / "should we do X" / ROI or threshold decision | CEO (via `59-problem-solving-decision-modeling-skill`) + whichever domain Agent(s) the decision actually touches |
 
 These are starting points, not fixed rules -- adjust the agent set if the specifics of the request call for it, and say why if you deviate.
+
+## Cross-Cutting Skill Activation: Problem Solving and Decision Modeling
+
+`59-problem-solving-decision-modeling-skill` (owned by CEO-Agent) is a reasoning engine, not a domain, so it activates differently from the other Skills above: it combines *with* whichever domain Agent(s) the request already routes to, rather than replacing them. Activate it whenever the request's intent matches: solve this problem, analyze the root cause, compare options, make a decision, calculate ROI, estimate impact, build a metric tree, define a hypothesis, design an experiment, optimize a threshold, model scenarios, prioritize initiatives, reduce cost, improve throughput, evaluate feasibility, or understand trade-offs -- not only when the request explicitly says "decision."
+
+Examples of the combination, not a replacement:
+- A robotics feasibility question → `59-problem-solving-decision-modeling-skill` + CIO-Agent's hardware/robotics Skills
+- A SaaS pricing question → `59-problem-solving-decision-modeling-skill` + CPO-Agent (product) + CFO-Agent (finance) + CRO-Agent (growth)
+- An AI infrastructure decision → `59-problem-solving-decision-modeling-skill` + CTO-Agent's AI architecture Skills + CFO-Agent
+- A manufacturing bottleneck → `59-problem-solving-decision-modeling-skill` + COO-Agent's operations Skills + CIO-Agent's NPI/manufacturing Skills
+
+Do not let this Skill default to producing a PRD, a BOM, or any other fixed artifact — its output is a decision packet (Decision Statement through Confidence Assessment, scaled to stakes per `skills/59-problem-solving-decision-modeling-skill/SKILL.md`'s Output Modes), and any downstream artifact a domain Agent produces afterward is a separate step, not this Skill's job.
 
 ## Execution Order
 

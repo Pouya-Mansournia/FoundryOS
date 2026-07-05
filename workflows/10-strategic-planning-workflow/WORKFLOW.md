@@ -43,7 +43,7 @@ CRO-Agent     (commercial/revenue implications)
 Vision & Strategic Narrative, Scenario Analysis (best/base/worst case), Strategic Roadmap, Brand Roadmap & Positioning Implications, Explicit Trade-off Log (what we're choosing *not* to do and why), KPI/OKR Set for the horizon, Risk Register.
 
 ## Validation
-`14-validation-skill` (COO-Agent) checks that the roadmap is actually affordable under CFO-Agent's base-case scenario, not just the optimistic one — the most common strategic-planning failure is a roadmap sized to best-case revenue. If `critic-agent/` is active, run it specifically against the trade-off log: are the rejected options genuinely worse, or just less discussed?
+`14-validation-skill` (COO-Agent) checks that the roadmap is actually affordable under CFO-Agent's base-case scenario, not just the optimistic one — the most common strategic-planning failure is a roadmap sized to best-case revenue. If `critic-agent/` is active, run it specifically against the trade-off log: are the rejected options genuinely worse, or just less discussed? This is the workflow most likely to need `59-problem-solving-decision-modeling-skill`'s full Scenario and Sensitivity Analysis (downside/base/upside), since a strategic bet sized only to the optimistic case is this workflow's most common failure.
 
 ## Risks
 - Strategy set against best-case financial scenario instead of base case, leaving no margin if growth comes in lower than hoped

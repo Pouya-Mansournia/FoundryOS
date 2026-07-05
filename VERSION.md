@@ -1,22 +1,22 @@
 # Version
 
-## Current: v4.0
+## Current: v4.1
 
 | Layer | Count |
 |---|---|
-| Modules | 175 (numbered `00`–`173`; one legacy duplicate at `99`, see `AUDIT_REPORT.md`) |
-| Skills | 58 (17 of which, `42`-`58`, are CBO-Agent's brand domain) |
+| Modules | 179 (numbered `00`–`177`; one legacy duplicate at `99`, see `AUDIT_REPORT.md`) |
+| Skills | 59 (17 of which, `42`-`58`, are CBO-Agent's brand domain; 1, `59-problem-solving-decision-modeling-skill`, is a cross-cutting reasoning layer) |
 | Agents | 10 (incl. CBO-Agent) |
 | Meta-Agents | 1 |
-| Workflows | 10 |
+| Workflows | 11 (10 product/company-shaped + `11-problem-solving-decision-workflow`) |
 | Memory Files | 13 (7 cross-domain + 6 brand) |
 | Advanced-Layer Agents | 3 (Reflection, Critic, Planner) |
 | Knowledge Graphs | 6 (5 original + `BRAND_GRAPH.md`) |
-| Commands | 39 (26 original + 13 brand) |
+| Commands | 40 (26 original + 13 brand + `/solve`) |
 | Onboarding Docs | 11 (`INSTALL.md` through `CONTRIBUTING.md`) |
 | Brand Charter | 1 (`brand/BRAND_OS.md`) |
 
-v1.0 was the first complete pass through the core four layers: every Module compiled into a Skill, every Skill owned by at least one Agent, and the Meta-Agent able to route any request across the full set without a human manually picking Agents. v2.0 added the **Workflows layer** (`workflows/`) and the **Advanced Layer** (`memory/`, `reflection-agent/`, `critic-agent/`, `planner-agent/`, `knowledge-graph/`) described in full in [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md). v3.0 added the **Command Layer** (`commands/`, 26 slash commands, see [`COMMANDS.md`](COMMANDS.md)) and a full beginner-onboarding doc set so a complete beginner can get from a ZIP download to a working session in any of four supported environments. v4.0 is two changes shipped together — the rename to **FoundryOS** and a full **Brand Operating System** (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, 13 brand Commands) integrated into every existing layer rather than appended on top. See [`CHANGELOG.md`](CHANGELOG.md) for how it got here.
+v1.0 was the first complete pass through the core four layers: every Module compiled into a Skill, every Skill owned by at least one Agent, and the Meta-Agent able to route any request across the full set without a human manually picking Agents. v2.0 added the **Workflows layer** (`workflows/`) and the **Advanced Layer** (`memory/`, `reflection-agent/`, `critic-agent/`, `planner-agent/`, `knowledge-graph/`) described in full in [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md). v3.0 added the **Command Layer** (`commands/`, 26 slash commands, see [`COMMANDS.md`](COMMANDS.md)) and a full beginner-onboarding doc set so a complete beginner can get from a ZIP download to a working session in any of four supported environments. v4.0 is two changes shipped together — the rename to **FoundryOS** and a full **Brand Operating System** (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, 13 brand Commands) integrated into every existing layer rather than appended on top. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — a reusable engine for framing ambiguous problems, building causal/metric models, and selecting quantitative formulas, rather than another PRD template. See [`CHANGELOG.md`](CHANGELOG.md) for how it got here.
 
 ---
 
@@ -48,6 +48,13 @@ v1.0 was the first complete pass through the core four layers: every Module comp
 - **13 new Commands** (`/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`), bringing the total from 26 to 39.
 - Reflection, Critic, and Planner agents extended to evaluate brand consistency, challenge naming/positioning/visual-identity decisions, and sequence brand rollouts alongside product and company roadmaps.
 - Brand examples and onboarding touches woven into `README.md`, `QUICKSTART.md`, `GETTING_STARTED.md`, `FAQ.md`, `CONTRIBUTING.md`, every `docs/*_SETUP.md` guide, and `docs/SHOWCASE.md`'s asset kit (new Logo Prompt and Hero Image sections, a Brand Intelligence node added to the architecture diagram, a 4th screenshot example).
+
+### v4.1 — Problem Solving & Decision Modeling (shipped)
+
+- **`59-problem-solving-decision-modeling-skill`** (CEO-Agent) — a reusable reasoning engine, not a document template: frames an ambiguous problem, builds a current-state and causal model before any solution is proposed, decomposes the problem, translates goals into a metric tree, engineers falsifiable hypotheses, generates and compares solution options, and selects the right reusable quantitative formula for the decision.
+- **`skills/59-problem-solving-decision-modeling-skill/FORMULA_LIBRARY.md`** — 29 domain-neutral, reusable formula families (unit economics, funnels, capacity, reliability, experimentation, prioritization, TCO, and more), each with equation, variables, units, assumptions, valid/invalid use, and common mistakes.
+- **`11-problem-solving-decision-workflow`** and the **`/solve` command** — the reasoning layer the other 10 Workflows call into at their own decision, prioritization, and validation gates (all 10 `workflows/*/WORKFLOW.md` files updated), and can also run standalone.
+- Critic Agent, Planner Agent, and Reflection Agent extended to check formula misuse and causal claims, sequence a decision's staged rollout, and backfill a Decision Record's actual outcome — `memory/decision-log.md` extended with the full Decision Record structure this Skill produces.
 
 ### v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine (planned)
 

@@ -40,7 +40,7 @@ CFO-Agent     (BOM cost, CAPEX, unit economics)
 PRD, BOM, DFM/DFA Review, CMF (Color/Material/Finish) Spec, Packaging & Unboxing Design, EVT/DVT/PVT Plan, Supply Chain & Supplier Qualification Plan, Manufacturing Ramp Plan, Cost Analysis (unit cost + CAPEX), Risk Register, Production-Readiness Roadmap.
 
 ## Validation
-`18-stage-gate-skill` (COO-Agent) gates the plan at each phase boundary (EVT → DVT → PVT → production) — nothing advances to the next phase without an explicit go/no-go. `35-npi-manufacturing-skill` is the shared deliverable between CIO-Agent and COO-Agent and should appear once, jointly owned, not duplicated. If `critic-agent/` is active, run it against the BOM and supplier plan specifically for single-source-of-failure risk.
+`18-stage-gate-skill` (COO-Agent) gates the plan at each phase boundary (EVT → DVT → PVT → production) — nothing advances to the next phase without an explicit go/no-go. `35-npi-manufacturing-skill` is the shared deliverable between CIO-Agent and COO-Agent and should appear once, jointly owned, not duplicated. If `critic-agent/` is active, run it against the BOM and supplier plan specifically for single-source-of-failure risk. Any single-source vs. dual-source or make-vs-buy call at a phase gate should run through `59-problem-solving-decision-modeling-skill` (TCO and reliability formulas from `FORMULA_LIBRARY.md`) rather than being decided on unit cost alone.
 
 ## Risks
 - BOM costed against design-stage assumptions that don't survive DFM review, breaking the unit economics CFO-Agent already modeled
