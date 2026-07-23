@@ -1,0 +1,47 @@
+<svg width="680" height="1060" viewBox="0 0 680 1060" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>FoundryOS architecture stack, 14 layers</title>
+<desc>Modules feed Skills, owned by Agents, orchestrated by the Meta-Agent through Workflows, run through the Advanced Layer (Memory, Reflection, Critic, Planner, Knowledge Graph), woven with Brand Intelligence, triggered by Commands, passed through the preview-stage MCP Layer, producing Artifacts.</desc>
+<rect x="0" y="0" width="680" height="1060" fill="#0B0E14"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#73726c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<line x1="340" y1="84" x2="340" y2="112" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="156" x2="340" y2="184" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="228" x2="340" y2="256" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="300" x2="340" y2="328" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="372" x2="340" y2="400" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="444" x2="340" y2="472" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="516" x2="340" y2="544" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="588" x2="340" y2="616" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="660" x2="340" y2="688" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="732" x2="340" y2="760" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="804" x2="340" y2="832" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="876" x2="340" y2="904" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="948" x2="340" y2="976" stroke="#73726c" stroke-width="1" marker-end="url(#arrow)"/>
+<rect x="210" y="40" width="260" height="44" rx="8" fill="#444441" stroke="#B4B2A9" stroke-width="1"/>
+<text x="340" y="62.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D3D1C7">Modules (179)</text>
+<rect x="210" y="112" width="260" height="44" rx="8" fill="#444441" stroke="#B4B2A9" stroke-width="1"/>
+<text x="340" y="134.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#D3D1C7">Skills (59)</text>
+<rect x="210" y="184" width="260" height="44" rx="8" fill="#3C3489" stroke="#AFA9EC" stroke-width="1"/>
+<text x="340" y="206.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#CECBF6">Agents (10)</text>
+<rect x="210" y="256" width="260" height="44" rx="8" fill="#3C3489" stroke="#AFA9EC" stroke-width="1"/>
+<text x="340" y="278.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#CECBF6">Meta-Agent</text>
+<rect x="210" y="328" width="260" height="44" rx="8" fill="#3C3489" stroke="#AFA9EC" stroke-width="1"/>
+<text x="340" y="350.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#CECBF6">Workflows (11)</text>
+<rect x="210" y="400" width="260" height="44" rx="8" fill="#085041" stroke="#5DCAA5" stroke-width="1"/>
+<text x="340" y="422.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#9FE1CB">Memory</text>
+<rect x="210" y="472" width="260" height="44" rx="8" fill="#085041" stroke="#5DCAA5" stroke-width="1"/>
+<text x="340" y="494.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#9FE1CB">Reflection Agent</text>
+<rect x="210" y="544" width="260" height="44" rx="8" fill="#085041" stroke="#5DCAA5" stroke-width="1"/>
+<text x="340" y="566.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#9FE1CB">Critic Agent</text>
+<rect x="210" y="616" width="260" height="44" rx="8" fill="#085041" stroke="#5DCAA5" stroke-width="1"/>
+<text x="340" y="638.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#9FE1CB">Planner Agent</text>
+<rect x="210" y="688" width="260" height="44" rx="8" fill="#085041" stroke="#5DCAA5" stroke-width="1"/>
+<text x="340" y="710.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#9FE1CB">Knowledge Graph</text>
+<rect x="210" y="760" width="260" height="44" rx="8" fill="#72243E" stroke="#ED93B1" stroke-width="1"/>
+<text x="340" y="782.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#F4C0D1">Brand Intelligence</text>
+<rect x="210" y="832" width="260" height="44" rx="8" fill="#712B13" stroke="#F0997B" stroke-width="1"/>
+<text x="340" y="854.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#F5C4B3">Commands (41)</text>
+<rect x="210" y="904" width="260" height="44" rx="8" fill="#712B13" stroke="#F0997B" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="340" y="926.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#F5C4B3">MCP Layer (preview)</text>
+<rect x="210" y="976" width="260" height="44" rx="8" fill="#712B13" stroke="#F0997B" stroke-width="1"/>
+<text x="340" y="998.0" text-anchor="middle" dominant-baseline="central" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#F5C4B3">Artifacts</text>
+</svg>

@@ -1,6 +1,6 @@
 # GIF Storyboard
 
-Status: **prompt-only** — this is a screen-recording production plan, not something an image generator or hand-built SVG can produce. Full context lives in [`docs/SHOWCASE.md`](../../docs/SHOWCASE.md#4-gif-storyboard) — this file extracts the storyboard so it can be handed to whoever records it.
+Status: **frames 1 & 3 rendered** as `images/demo.gif` (hand-built terminal typing animation, no chat UI needed for those two beats). Frames 2 and 4–10 are still **prompt-only** — they require a real chat-interface screen recording, not something an image generator or hand-built SVG can produce. Full context lives in [`docs/SHOWCASE.md`](../../docs/SHOWCASE.md#4-gif-storyboard) — this file extracts the storyboard so it can be handed to whoever records the rest.
 
 10 seconds, 10 frames, ~1s each. Production note: screen-record a real session (terminal + a generic AI chat interface) rather than fully fabricating UI in a design tool — it'll look more credible and takes less effort than building 10 mockups from scratch. Capture with any screen recorder, trim and convert with `ffmpeg` or a GIF-specific tool (Kap, Gifski), keep it under ~3MB so it loads fast in a README.
 

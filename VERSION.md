@@ -1,6 +1,8 @@
 # Version
 
-## Current: v4.1
+## Current: v5.0.0-preview.1
+
+**This is a pre-release tag, not the full v5.0.0 major.** The last complete public release is v4.1.0. v5.0.0-preview.1 ships only the MCP declaration layer described below — the Runtime and Execution Engine bullets under the v5.0.0 Roadmap entry are still unshipped. See [`VERSIONING.md`](VERSIONING.md) §9 and §11 for what a preview tag means and why this isn't the plain `v5.0.0` tag yet.
 
 | Layer | Count |
 |---|---|
@@ -11,12 +13,13 @@
 | Workflows | 11 (10 product/company-shaped + `11-problem-solving-decision-workflow`) |
 | Memory Files | 13 (7 cross-domain + 6 brand) |
 | Advanced-Layer Agents | 3 (Reflection, Critic, Planner) |
-| Knowledge Graphs | 6 (5 original + `BRAND_GRAPH.md`) |
-| Commands | 40 (26 original + 13 brand + `/solve`) |
+| Knowledge Graphs | 7 (5 original + `BRAND_GRAPH.md` + `MCP_GRAPH.md`) |
+| Commands | 41 (26 original + 13 brand + `/solve` + `/mcp`) |
+| MCP Layer | 1 (`mcp-layer/MCP_LAYER.md` — declaration spec only; no Runtime, no Execution Engine) |
 | Onboarding Docs | 11 (`INSTALL.md` through `CONTRIBUTING.md`) |
 | Brand Charter | 1 (`brand/BRAND_OS.md`) |
 
-v1.0 was the first complete pass through the core four layers: every Module compiled into a Skill, every Skill owned by at least one Agent, and the Meta-Agent able to route any request across the full set without a human manually picking Agents. v2.0 added the **Workflows layer** (`workflows/`) and the **Advanced Layer** (`memory/`, `reflection-agent/`, `critic-agent/`, `planner-agent/`, `knowledge-graph/`) described in full in [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md). v3.0 added the **Command Layer** (`commands/`, 26 slash commands, see [`COMMANDS.md`](COMMANDS.md)) and a full beginner-onboarding doc set so a complete beginner can get from a ZIP download to a working session in any of four supported environments. v4.0 is two changes shipped together — the rename to **FoundryOS** and a full **Brand Operating System** (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, 13 brand Commands) integrated into every existing layer rather than appended on top. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — a reusable engine for framing ambiguous problems, building causal/metric models, and selecting quantitative formulas, rather than another PRD template. See [`CHANGELOG.md`](CHANGELOG.md) for how it got here.
+v1.0 was the first complete pass through the core four layers: every Module compiled into a Skill, every Skill owned by at least one Agent, and the Meta-Agent able to route any request across the full set without a human manually picking Agents. v2.0 added the **Workflows layer** (`workflows/`) and the **Advanced Layer** (`memory/`, `reflection-agent/`, `critic-agent/`, `planner-agent/`, `knowledge-graph/`) described in full in [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md). v3.0 added the **Command Layer** (`commands/`, 26 slash commands, see [`COMMANDS.md`](COMMANDS.md)) and a full beginner-onboarding doc set so a complete beginner can get from a ZIP download to a working session in any of four supported environments. v4.0 is two changes shipped together — the rename to **FoundryOS** and a full **Brand Operating System** (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, 13 brand Commands) integrated into every existing layer rather than appended on top. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — a reusable engine for framing ambiguous problems, building causal/metric models, and selecting quantitative formulas, rather than another PRD template. v5.0.0-preview.1 adds the **MCP Layer** — a declaration contract letting a Skill name a specific live-data need instead of guessing silently, with no runtime or execution behavior attached yet. See [`CHANGELOG.md`](CHANGELOG.md) for how it got here.
 
 ---
 
@@ -56,13 +59,21 @@ v1.0 was the first complete pass through the core four layers: every Module comp
 - **`11-problem-solving-decision-workflow`** and the **`/solve` command** — the reasoning layer the other 10 Workflows call into at their own decision, prioritization, and validation gates (all 10 `workflows/*/WORKFLOW.md` files updated), and can also run standalone.
 - Critic Agent, Planner Agent, and Reflection Agent extended to check formula misuse and causal claims, sequence a decision's staged rollout, and backfill a Decision Record's actual outcome — `memory/decision-log.md` extended with the full Decision Record structure this Skill produces.
 
-### v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine (planned)
+### v5.0.0-preview.1 — MCP Declaration Layer (shipped)
 
-This is the next MAJOR, not an incremental one — it changes what FoundryOS *is*, from a knowledge system read by a human or assistant to one with an actual execution layer underneath it. See [`VERSIONING.md`](VERSIONING.md) §9 for why this clears the bar for a major version rather than a minor one.
+A pre-release tag toward the v5.0.0 major (see [`VERSIONING.md`](VERSIONING.md) §11's new pre-release tag convention), not the complete major itself — this ships only the first of the three bullets originally scoped under "v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine" below.
+
+- **`mcp-layer/MCP_LAYER.md`** — a declaration contract: any Skill whose output would be meaningfully better with a live external fact can append an `## MCP Tool Request` block (Need / Category / If-unavailable) instead of guessing silently. FoundryOS itself holds no state and executes nothing; whichever MCP-capable assistant is running the session fulfills the request, or the Meta-Agent's existing Missing Inputs/Assumptions handling absorbs the gap.
+- **`knowledge-graph/MCP_GRAPH.md`** — a 7th Knowledge Graph file, mapping how a declared request connects back to the triggering Command and forward to the Artifact it improves.
+- **`commands/mcp.md`** (`/mcp`) — drafts or reviews an MCP Tool Request for a given step, bringing the command total from 40 to 41.
+- **Explicitly not shipped**: a Runtime (state held across Workflow steps) and an Execution Engine (steps that run unattended). Both remain scoped under the plain `v5.0.0` tag below.
+
+### v5.0.0 — Runtime, Tool Execution & Execution Engine (planned)
+
+This is the next MAJOR, not an incremental one — it changes what FoundryOS *is*, from a knowledge system read by a human or assistant to one with an actual execution layer underneath it. See [`VERSIONING.md`](VERSIONING.md) §9 for why this clears the bar for a major version rather than a minor one. The MCP declaration piece originally scoped here shipped early as v5.0.0-preview.1 above; what's left before the plain `v5.0.0` tag is cut:
 
 - **Runtime layer** — a way to hold state across steps of a Workflow instead of every step starting from a fresh prompt with no memory of where it is in the sequence.
-- **MCP / tool integration** — Agents that can call real tools (not just produce text describing what a tool should do), the way this very session's Cowork environment already does for file and shell access.
-- **Execution engine** — the mechanism that actually runs a Workflow's steps in order, checks them against Validation and the Critic Agent, and advances to the next step without a human re-prompting in between.
+- **Execution engine** — the mechanism that actually runs a Workflow's steps in order, checks them against Validation and the Critic Agent, calls the real MCP tools declared via `mcp-layer/MCP_LAYER.md` instead of relying on a human's host assistant to do it ad hoc, and advances to the next step without a human re-prompting in between.
 - **Autonomous workflows** — multi-step workflows that span sessions unattended (e.g. "take this PRD all the way through stage-gate sign-off"), and closed-loop execution where an Agent's output automatically triggers the next Agent once it passes Validation and the Critic Agent.
 - Tighter integration between `25-prompt-loop-skill` and the Reflection/Critic/Planner agents so the recursive improvement loop runs unattended instead of requiring a manual trigger each time.
 

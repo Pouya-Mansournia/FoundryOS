@@ -1,16 +1,93 @@
 # FoundryOS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Version](https://img.shields.io/badge/version-4.0.0-success.svg)](VERSION.md) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Version](https://img.shields.io/badge/version-5.0.0--preview.1-blue.svg)](VERSION.md) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 **Build Anything. Think Like a Team.**
 
 *Open Source Agentic Operating System*
 
-FoundryOS turns a large body of builder/operator knowledge into something an AI assistant can actually use: a structured stack of Modules, Skills, and Agents, coordinated by a single Meta-Agent that knows which specialist to call for any given request — and merges their output into one coherent answer instead of ten disconnected ones. On top of that core, a Workflows layer packages the most common request shapes into reusable sequences, an Advanced Layer adds memory and self-critique, a Brand Operating System threads identity and voice through everything the other Agents produce, and a Commands layer lets you trigger any of it with a short `/slash` command.
+**One prompt in, one coherent cross-functional answer out.** Drop FoundryOS into any AI assistant that can read files, type `/gtm`, `/prd`, `/robotics`, or `/brand`, and it runs the right specialists — CPO, CTO, CIO, CFO, CRO, CBO, and more — in the right order, then merges their output into a single executive answer instead of ten disconnected ones. No install, no API keys, no lock-in — it's markdown, and it works the moment you point your assistant at the repo.
 
-It's designed to be dropped into any AI assistant that can read a project's files — Claude, ChatGPT, Cursor, Windsurf, or any agentic coding/chat environment with file access — and used as a standing operating system for building anything: a company, a product, a piece of hardware, a brand, a go-to-market plan.
+---
+
+## See It In Action
+
+![FoundryOS terminal demo: one /gtm command in, one merged Meta-Agent result out](assets/images/demo.gif)
+
+*(Real terminal recreation of an actual run — same command, same output, just typed live instead of a static block. It plays out inside whatever AI assistant you already use; see [Supported Environments](#supported-environments) below. Full asset spec: [`docs/SHOWCASE.md`](docs/SHOWCASE.md).)*
+
+<details>
+<summary>Prefer plain text? Same run, no GIF.</summary>
+
+```
+$ You:  /gtm Launch a usage-based pricing SaaS product to mid-market teams.
+
+Meta-Agent Result
+──────────────────────────────────────────────────────────────
+1. Request Classification   Revenue / Go-to-Market
+2. Selected Agents          CPO-Agent → CRO-Agent → CMO-Agent
+3. Selected Skills          08-gtm-skill, 36-pricing-sales-skill,
+                             03-strategy-skill, 37-marketing-skill
+4. Combined Executive Answer
+   → Positioning, channel mix, pricing tiers, and launch sequence,
+     written as one plan — not three separate agent outputs
+5. Contradictions/Conflicts  None identified
+6. Missing Inputs/Assumptions
+   → Assumed B2B sales-assisted motion; flag if self-serve
+7. Risks & Next Actions      [specific, dated, ready to execute]
+──────────────────────────────────────────────────────────────
+✓ One coherent answer, assembled from 3 specialists, in one pass.
+```
+
+</details>
+
+## Quick Win: 60 Seconds to a Real Output
+
+1. Drop this repo into Claude, ChatGPT, Cursor, or Windsurf (see [Quick Start](#quick-start) below).
+2. Type one line: `/prd Write a PRD for a usage-based billing feature.`
+3. Get back a structured PRD — problem statement, ICP, requirements, and scorecard — produced by CPO-Agent's `04-prd-skill`, with assumptions flagged instead of silently guessed.
+
+That's the whole workflow. No config file, no onboarding flow, no account. See [`examples/`](examples) for nine fully worked runs across AI products, robotics, SaaS, fundraising, manufacturing, team scaling, and brand/identity.
+
+---
+
+## Why FoundryOS
+
+- **Multi-agent by default.** Real requests cut across domains; one generalist persona covering everything shallowly is the old way. FoundryOS runs the right specialists in the right order automatically.
+- **One coherent answer, not ten.** The Meta-Agent merges multi-agent output into a single voice and explicitly surfaces contradictions and missing inputs — most multi-agent setups leave that stitching to you.
+- **Brand built in, not bolted on.** A full Brand Operating System — strategy, naming, identity, design system, voice — runs through CBO-Agent and attaches to every Workflow, not a standalone "marketing" afterthought.
+- **Memory that compounds.** The Advanced Layer means the system gets measurably better at a given kind of decision the second time, not just the first.
+- **Zero install, zero lock-in.** It's markdown. Works anywhere an AI assistant can read files; nothing to run, build, or host — and nothing to migrate away from later.
 
 **Who it's for:** founders who want a structured starting point instead of a blank page; engineers and technical leads who need a CTO/CIO-level second opinion without hiring one yet; product managers who want PRDs, scorecards, and roadmaps in a consistent format; researchers and builders prototyping something new who need the right specialist framing without context-switching between five different mental models; teams who need a name, a logo, a voice, or a design system and don't yet have a CBO to ask; and teams who want their AI assistant to think like a full cross-functional org instead of one generalist.
+
+**Where it stacks up against the alternatives:**
+
+| Approach | What you actually get |
+|---|---|
+| One generalist prompt | A single shallow pass across every function at once — no specialist depth, nothing flags what's missing |
+| Hand-chaining specialist prompts yourself | Real per-function depth, but you own the classification, sequencing, and merging, from scratch, every single time |
+| **FoundryOS** | The Meta-Agent classifies the request, sequences the right specialists, and merges their output into one answer — contradictions and missing inputs surfaced, not buried |
+
+**Where it's headed next:** v4.1 added a decision-modeling reasoning layer for ambiguous, non-artifact requests; **v5.0.0-preview.1** (current) adds a declarative MCP layer — a Skill can now name a specific live-data need instead of guessing silently. It's a pre-release toward the full v5.0.0 major, not the complete thing: a Runtime and an Execution Engine for closed-loop, unattended execution remain planned. Full detail in [Roadmap](#roadmap) below.
+
+## Worked Examples
+
+Nine fully worked, end-to-end runs — not toy snippets — showing exactly what comes out the other side:
+
+| Example | Scenario | Agents Involved |
+|---|---|---|
+| [`ai-product-example.md`](examples/ai-product-example.md) | Shipping an AI product feature | CPO, CTO, CEO |
+| [`robotics-product-example.md`](examples/robotics-product-example.md) | Designing a robotics product from scratch | CIO, CTO, CPO, COO |
+| [`saas-dashboard-example.md`](examples/saas-dashboard-example.md) | Architecting a SaaS analytics dashboard | CTO, CPO, CMO |
+| [`investor-readiness-example.md`](examples/investor-readiness-example.md) | Getting fundraising-ready | CEO, CFO, CPO, CRO, CTO |
+| [`manufacturing-plan-example.md`](examples/manufacturing-plan-example.md) | Building a hardware manufacturing readiness plan | CIO, COO, CFO |
+| [`team-scaling-example.md`](examples/team-scaling-example.md) | Designing org structure, hiring system, and culture at 15 people | CEO, COO, CHRO, CBO, CFO |
+| [`brand-identity-example.md`](examples/brand-identity-example.md) | Building a brand, name, logo, and design system from zero | CEO, CBO |
+| [`brand-narrative-community-example.md`](examples/brand-narrative-community-example.md) | Website, launch narrative, and community for an open-source launch | CBO, CRO |
+| [`decision-modeling-example.md`](examples/decision-modeling-example.md) | Three worked decisions (AI inference hosting cost trade-off, SaaS pricing tier, manufacturing inspection automation) | CEO, CTO, CFO, COO |
+
+See [`docs/EXAMPLES.md`](docs/EXAMPLES.md) for the indexed guide, or jump straight to [Quick Start](#quick-start) below to run one yourself.
 
 ---
 
@@ -39,7 +116,9 @@ It's designed to be dropped into any AI assistant that can read a project's file
       ↓
  Brand Intelligence
       ↓
- 40 Commands
+ 41 Commands
+      ↓
+ MCP Layer
       ↓
  Artifacts
 ```
@@ -64,22 +143,21 @@ And the diagram ends at **Artifacts**, not Commands — Commands are how you tri
 
 **Advanced Layer** — Memory (13 persistent files: 7 cross-domain, 6 brand-specific), Reflection Agent, Critic Agent, Planner Agent, and a Knowledge Graph (6 files, including [`BRAND_GRAPH.md`](knowledge-graph/BRAND_GRAPH.md)) — lets the system accumulate context and self-critique across runs instead of starting from zero each time, including brand consistency, voice consistency, and narrative quality. Full explanation: [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md).
 
-**Commands** (40) expose every Agent, Workflow, and Advanced-Layer component as a short slash command — `/cpo`, `/saas`, `/critic`, `/fundraising`, `/brand`, `/logo`, `/voice`, `/solve`. A command is a pointer into logic that already exists; it adds no new behavior. See [`COMMANDS.md`](COMMANDS.md).
+**Commands** (41) expose every Agent, Workflow, and Advanced-Layer component as a short slash command — `/cpo`, `/saas`, `/critic`, `/fundraising`, `/brand`, `/logo`, `/voice`, `/solve`, `/mcp`. A command is a pointer into logic that already exists; it adds no new behavior. See [`COMMANDS.md`](COMMANDS.md).
+
+**MCP Layer** (new in v5.0.0-preview.1) sits between Commands and Artifacts as a declaration contract, not a runtime: any Skill whose output would be meaningfully better with a live external fact — current competitor pricing, what's actually in an existing codebase — can append an MCP Tool Request (Need / Category / fallback) instead of guessing silently. FoundryOS still executes nothing itself; whichever MCP-capable assistant is running the session fulfills the request, or the Meta-Agent's existing Missing Inputs/Assumptions handling absorbs the gap. This is deliberately the smaller half of the planned v5.0.0 major — a Runtime and an Execution Engine for unattended, closed-loop execution remain unshipped. Full spec: [`mcp-layer/MCP_LAYER.md`](mcp-layer/MCP_LAYER.md); how it connects to Commands and Artifacts: [`knowledge-graph/MCP_GRAPH.md`](knowledge-graph/MCP_GRAPH.md).
 
 **Artifacts** are the concrete deliverables a run produces — PRD, System Architecture, BOM, Financial Model, GTM Plan, Roadmap, Brand Strategy Brief, Logo System, Design System, and so on. Every Artifact traces back to the Workflow and Agent(s) that produced it; see [`knowledge-graph/ARTIFACT_GRAPH.md`](knowledge-graph/ARTIFACT_GRAPH.md).
 
 ---
 
-## Features
+## More Features
 
-- **Multi-agent by default.** Real problems cut across domains; the system runs the right specialists in the right order instead of forcing one generalist persona to cover everything shallowly.
-- **One coherent answer, not ten.** The Meta-Agent merges multi-agent output into a single voice and explicitly surfaces contradictions and missing inputs.
-- **Reusable Workflows.** The 10 most common request shapes are pre-sequenced so they don't have to be re-derived from scratch every time.
-- **Memory that compounds.** The Advanced Layer means the system gets measurably better at a given kind of decision the second time, not just the first.
-- **Brand built in, not bolted on.** A full Brand Operating System — strategy, naming, identity, design system, voice, storytelling, and community — runs through CBO-Agent and attaches to every Workflow, not a standalone "marketing" afterthought.
-- **Slash commands everywhere.** 39 commands give you a fast, explicit way to invoke any Agent, Workflow, or Advanced-Layer component.
-- **Zero install, zero lock-in.** It's markdown. Works anywhere an AI assistant can read files; nothing to run, build, or host.
+- **Reusable Workflows.** The 11 most common request shapes are pre-sequenced so they don't have to be re-derived from scratch every time.
+- **Slash commands everywhere.** 41 commands give you a fast, explicit way to invoke any Agent, Workflow, or Advanced-Layer component.
 - **Fully generic templates.** No placeholder company, product, or example-brand names baked into the system — every template is written to be reused as-is for whatever you're actually building.
+
+(See [Why FoundryOS](#why-foundryos) above for the headline differentiators.)
 
 ## Supported Environments
 
@@ -106,11 +184,11 @@ See [`GETTING_STARTED.md`](GETTING_STARTED.md) for the 30-second / 5-minute / 30
 
 ## Commands
 
-40 slash commands cover every Agent, Workflow, and Advanced-Layer component — `/cpo`, `/cto`, `/cio`, `/coo`, `/cfo`, `/cro`, `/cmo`, `/chro`, `/ceo`, `/planner`, `/critic`, `/reflection`, `/prd`, `/gtm`, `/fundraising`, `/startup`, `/company-builder`, `/saas`, `/hardware`, `/robotics`, `/ai-product`, `/strategy`, `/market`, `/finance`, `/architecture`, `/operations`, `/solve`, `/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`. Full table and usage: [`COMMANDS.md`](COMMANDS.md).
+41 slash commands cover every Agent, Workflow, and Advanced-Layer component — `/cpo`, `/cto`, `/cio`, `/coo`, `/cfo`, `/cro`, `/cmo`, `/chro`, `/ceo`, `/planner`, `/critic`, `/reflection`, `/mcp`, `/prd`, `/gtm`, `/fundraising`, `/startup`, `/company-builder`, `/saas`, `/hardware`, `/robotics`, `/ai-product`, `/strategy`, `/market`, `/finance`, `/architecture`, `/operations`, `/solve`, `/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`. Full table and usage: [`COMMANDS.md`](COMMANDS.md).
 
 ### Claude Code slash commands
 
-The `commands/` folder above is documentation — Purpose, Activated Agents, Activated Skills, Workflows, Output, Example — written for a human (or any assistant) to read and follow. `.claude/commands/` is the executable layer on top of it: 40 matching files, in Claude Code's native slash-command format, that ship pre-built in this repo. Open the repo in Claude Code and `/cpo`, `/robotics`, `/brand`, and the rest just work — no setup step.
+The `commands/` folder above is documentation — Purpose, Activated Agents, Activated Skills, Workflows, Output, Example — written for a human (or any assistant) to read and follow. `.claude/commands/` is the executable layer on top of it: 41 matching files, in Claude Code's native slash-command format, that ship pre-built in this repo. Open the repo in Claude Code and `/cpo`, `/robotics`, `/brand`, and the rest just work — no setup step.
 
 Each generated file is a thin wrapper, not a duplicate. It instructs Claude Code to read the relevant Agent file(s) (and `meta-agent/META_AGENT.md` for multi-Agent commands) live off disk before answering, carries the full command spec inline, and points to the Meta-Agent merge pattern in [`QUICKSTART.md`](QUICKSTART.md#worked-example) for commands that activate more than one Agent. This keeps `.claude/commands/` honest as the system evolves — it reads the Agent/Meta-Agent files as they exist today rather than freezing a snapshot of their content at generation time.
 
@@ -138,7 +216,7 @@ FoundryOS/
 │   │   └── feature_request.md   ← new Skill / Agent / Workflow / Command proposal
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .claude/
-│   └── commands/                ← 40 pre-built Claude Code slash commands (generated from commands/)
+│   └── commands/                ← 41 pre-built Claude Code slash commands (generated from commands/)
 │       └── {name}.md
 ├── ADVANCED_LAYER.md            ← how Memory/Reflection/Critic/Planner/Graph interact
 ├── VERSION.md                   ← current version + structural roadmap
@@ -150,7 +228,7 @@ FoundryOS/
 ├── LICENSE                      ← MIT
 ├── docs/                        ← secondary & reference documentation
 │   ├── TUTORIALS.md             ← beginner / intermediate / advanced
-│   ├── ROADMAP.md               ← v1 → v4 and future vision
+│   ├── ROADMAP.md               ← v1 → v5 and future vision
 │   ├── SHOWCASE.md              ← GitHub showcase kit: diagrams, banner & screenshot prompts
 │   ├── EXAMPLES.md              ← index into examples/
 │   ├── CLAUDE_SETUP.md
@@ -181,8 +259,10 @@ FoundryOS/
 │   └── CRITIC_AGENT.md
 ├── planner-agent/
 │   └── PLANNER_AGENT.md
-├── knowledge-graph/              ← 6 dependency-map files (incl. ARTIFACT_GRAPH.md, BRAND_GRAPH.md)
-├── commands/                     ← 40 slash-command definitions
+├── knowledge-graph/              ← 7 dependency-map files (incl. ARTIFACT_GRAPH.md, BRAND_GRAPH.md, MCP_GRAPH.md)
+├── mcp-layer/
+│   └── MCP_LAYER.md              ← declarative MCP tool-request contract (v5.0.0-preview.1, spec only)
+├── commands/                     ← 41 slash-command definitions
 │   └── {name}.md
 ├── scripts/
 │   └── generate_claude_commands.py  ← regenerates .claude/commands/ from commands/
@@ -204,31 +284,17 @@ FoundryOS/
 
 ---
 
-## Examples
-
-| Example | Scenario | Agents Involved |
-|---|---|---|
-| [`ai-product-example.md`](examples/ai-product-example.md) | Shipping an AI product feature | CPO, CTO, CEO |
-| [`robotics-product-example.md`](examples/robotics-product-example.md) | Designing a robotics product from scratch | CIO, CTO, CPO, COO |
-| [`saas-dashboard-example.md`](examples/saas-dashboard-example.md) | Architecting a SaaS analytics dashboard | CTO, CPO, CMO |
-| [`investor-readiness-example.md`](examples/investor-readiness-example.md) | Getting fundraising-ready | CEO, CFO, CPO, CRO, CTO |
-| [`manufacturing-plan-example.md`](examples/manufacturing-plan-example.md) | Building a hardware manufacturing readiness plan | CIO, COO, CFO |
-| [`team-scaling-example.md`](examples/team-scaling-example.md) | Designing org structure, hiring system, and culture at 15 people | CEO, COO, CHRO, CBO, CFO |
-| [`brand-identity-example.md`](examples/brand-identity-example.md) | Building a brand, name, logo, and design system from zero | CEO, CBO |
-| [`brand-narrative-community-example.md`](examples/brand-narrative-community-example.md) | Website, launch narrative, and community for an open-source launch | CBO, CRO |
-| [`decision-modeling-example.md`](examples/decision-modeling-example.md) | Three worked decisions (AI inference hosting cost trade-off, SaaS pricing tier, manufacturing inspection automation) using `59-problem-solving-decision-modeling-skill` | CEO, CTO, CFO, COO |
-
-See [`docs/EXAMPLES.md`](docs/EXAMPLES.md) for an indexed guide, including two scenarios (startup-building, GTM) shown as command walkthroughs rather than full example files.
-
 ## Screenshots
 
-_Coming soon — this is a markdown-only system with no UI of its own, so "screenshots" means it running inside each supported assistant. The exact mockups, banner, GIF, and demo-video specs are already written up in [`docs/SHOWCASE.md`](docs/SHOWCASE.md); once rendered they land in `assets/`. They'll show: a Claude Project with FoundryOS loaded, a `/cpo` command running in Claude Code, and a Meta-Agent Result rendered end to end. If you'd like to contribute one from your own setup, see [`CONTRIBUTING.md`](CONTRIBUTING.md)._
+The terminal side is covered by the [demo GIF](#see-it-in-action) at the top of this README. The rest is coming soon — this is a markdown-only system with no UI of its own, so "screenshots" beyond the terminal means it running inside each supported assistant's chat interface. Those mockups, banner, and demo-video specs are already written up in [`docs/SHOWCASE.md`](docs/SHOWCASE.md); once rendered they land in `assets/`. They'll show: a Claude Project with FoundryOS loaded, a `/cpo` command running in Claude Code, and a Meta-Agent Result rendered end to end inside a chat window. If you'd like to contribute one from your own setup, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ---
 
 ## Roadmap
 
-v1 shipped the core four layers (Modules → Skills → Agents → Meta-Agent). v2 added Workflows and the Advanced Layer. v3 added Commands and a full onboarding doc set. v4 is the FoundryOS rename, the `docs/`/`assets/` restructure, the Commands → Artifacts architecture fix, and a full Brand Operating System (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, and 13 brand Commands) integrated into every layer rather than appended as a tenth Agent that runs in isolation. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — `59-problem-solving-decision-modeling-skill` (CEO-Agent), a 29-formula reusable quantitative library, `11-problem-solving-decision-workflow`, and the `/solve` command — that frames ambiguous problems, builds causal and metric models, and selects the right quantitative formula for a decision instead of defaulting every request to a PRD. v5.0.0 (planned) is a Runtime, MCP/tool integration, and execution engine — autonomous, closed-loop workflows that don't need a human to re-prompt between steps. Full detail: [`docs/ROADMAP.md`](docs/ROADMAP.md). Versioning policy — what counts as major/minor/patch, and why the public release is v4.0.0 rather than v1.0.0: [`VERSIONING.md`](VERSIONING.md). Per-version publish notes: [`RELEASE_NOTES.md`](RELEASE_NOTES.md). Full v4.0 audit: [`AUDIT_REPORT.md`](AUDIT_REPORT.md). Consolidated final audit, auto-fix report, and GitHub publish checklist: [`FINAL_RELEASE_AUDIT.md`](FINAL_RELEASE_AUDIT.md).
+v1 shipped the core four layers (Modules → Skills → Agents → Meta-Agent). v2 added Workflows and the Advanced Layer. v3 added Commands and a full onboarding doc set. v4 is the FoundryOS rename, the `docs/`/`assets/` restructure, the Commands → Artifacts architecture fix, and a full Brand Operating System (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, and 13 brand Commands) integrated into every layer rather than appended as a tenth Agent that runs in isolation. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — `59-problem-solving-decision-modeling-skill` (CEO-Agent), a 29-formula reusable quantitative library, `11-problem-solving-decision-workflow`, and the `/solve` command — that frames ambiguous problems, builds causal and metric models, and selects the right quantitative formula for a decision instead of defaulting every request to a PRD.
+
+**v5.0.0-preview.1** (current) adds the **MCP Layer** — a declaration contract, not a runtime: any Skill can now append an MCP Tool Request (Need / Category / fallback) naming a specific live-data need instead of guessing silently, fulfilled by whichever MCP-capable assistant is running the session. This is a pre-release tag toward the full v5.0.0 major, not the complete thing — see [`VERSIONING.md`](VERSIONING.md)'s new pre-release tag convention (§11). Still planned before the plain `v5.0.0` tag is cut: a **Runtime** (state held across Workflow steps) and an **Execution Engine** (steps that run in order, unattended, without a human re-prompting between each one) — together enabling autonomous, closed-loop workflows. Full detail: [`docs/ROADMAP.md`](docs/ROADMAP.md). Versioning policy — what counts as major/minor/patch, and why the public release is v4.0.0 rather than v1.0.0: [`VERSIONING.md`](VERSIONING.md). Per-version publish notes: [`RELEASE_NOTES.md`](RELEASE_NOTES.md). Full v4.0 audit: [`AUDIT_REPORT.md`](AUDIT_REPORT.md). Consolidated final audit, auto-fix report, and GitHub publish checklist: [`FINAL_RELEASE_AUDIT.md`](FINAL_RELEASE_AUDIT.md).
 
 ## Community
 

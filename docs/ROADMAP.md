@@ -40,13 +40,22 @@ A reusable **reasoning and decision layer** — explicitly not another PRD templ
 
 Counts after v4.1: 179 Modules, 59 Skills, 10 Agents, 11 Workflows, 13 Memory files, 6 Knowledge Graphs, 40 Commands. See [`VERSION.md`](../VERSION.md) for the full table.
 
-## v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine (planned)
+## v5.0.0-preview.1 — MCP Declaration Layer (shipped)
 
-The next major version, not an incremental one — it adds an actual execution layer underneath the knowledge system, rather than extending an existing one. See [`VERSIONING.md`](../VERSIONING.md) for why this is a MAJOR rather than a MINOR.
+A **pre-release tag** toward the v5.0.0 major, not the complete major itself — see [`VERSIONING.md`](../VERSIONING.md) §11 for the new `vX.0.0-preview.N` convention this release introduces. Ships the first of the three capabilities originally scoped under v5.0.0 below.
+
+- **`mcp-layer/MCP_LAYER.md`** — a declaration contract: a Skill can name a specific real-world data or action need (`## MCP Tool Request`: Need / Category / If-unavailable) instead of guessing silently. No FoundryOS-shipped runtime or execution — the request is fulfilled by whichever MCP-capable assistant is running the session, or falls back to the Meta-Agent's existing Missing Inputs/Assumptions handling.
+- **`knowledge-graph/MCP_GRAPH.md`** — a 7th Knowledge Graph file, mapping requests back to their triggering Command and forward to the Artifact they improve.
+- **The `/mcp` command** — drafts or reviews a request for a given step; command total 40 → 41.
+
+Counts after v5.0.0-preview.1: 179 Modules, 59 Skills, 10 Agents, 11 Workflows, 13 Memory files, 7 Knowledge Graphs, 1 MCP Layer (declaration only), 41 Commands. See [`VERSION.md`](../VERSION.md) for the full table.
+
+## v5.0.0 — Runtime & Execution Engine (planned)
+
+The next major version, not an incremental one — it adds an actual execution layer underneath the knowledge system, rather than extending an existing one. See [`VERSIONING.md`](../VERSIONING.md) for why this is a MAJOR rather than a MINOR. The MCP-declaration piece originally scoped here shipped early as v5.0.0-preview.1 above; what's left before the plain `v5.0.0` tag is cut:
 
 - **Runtime layer** — state held across the steps of a Workflow, instead of every step starting from a fresh prompt with no memory of where it is in the sequence.
-- **MCP / tool integration** — Agents that call real tools rather than only producing text describing what a tool should do.
-- **Execution engine** — runs a Workflow's steps in order, checks each against Validation and the Critic Agent, and advances automatically.
+- **Execution engine** — runs a Workflow's steps in order, checks each against Validation and the Critic Agent, calls the real MCP tools a Skill declared via `mcp-layer/MCP_LAYER.md` instead of relying on a human's host assistant to do it ad hoc, and advances automatically.
 - **Autonomous workflows** — multi-step workflows that span sessions without a human re-prompting between every step (e.g. "take this PRD all the way through stage-gate sign-off" run unattended), and closed-loop execution where an Agent's output automatically triggers the next Agent once it passes Validation and the Critic Agent.
 - Tighter integration between `25-prompt-loop-skill` and the Reflection/Critic/Planner agents so the recursive improvement loop runs without a manual trigger each time.
 

@@ -27,7 +27,7 @@ Claude reads the command's file in `commands/` to know which Agents, Skills, and
 Claude Code supports real custom slash commands backed by files on disk, which is the closest thing to a native command palette for this system. FoundryOS ships these ready to go — there's nothing to set up.
 
 1. Open the `FoundryOS` folder in Claude Code (or copy it into an existing project).
-2. That's it. The repo already contains a `.claude/commands/` folder with all 40 commands pre-built — Claude Code picks it up automatically, no copying required.
+2. That's it. The repo already contains a `.claude/commands/` folder with all 41 commands pre-built — Claude Code picks it up automatically, no copying required.
 3. Type `/` to see the full list of available commands.
 4. Run one:
 

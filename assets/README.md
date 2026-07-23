@@ -20,8 +20,12 @@ These are actual PNGs, generated from SHOWCASE.md's exact specs (colors, layout,
 | `logo-on-dark.png` | Section 8 | 512×512, transparent, white nodes + indigo emphasis — for placement on **dark** surfaces (this repo's own banner/social preview) |
 | `logo-monochrome.png` | Section 8 | 512×512, transparent, single flat dark color — print/letterhead/watermark use |
 | `logo-favicon.png` | Section 8 | 64×64, dark rounded-square backdrop so it stays legible in any browser tab theme |
+| `demo.gif` | `gif-storyboard.md` (terminal-only cut) | 900×560, ~22s, hand-rendered typing animation of the actual `/gtm` "See It In Action" run — generic terminal chrome, no real product UI, same design tokens as the diagrams above. Wired into the top of `README.md`. |
+| `layer-stack-dark.svg` / `.png` | `README.md`'s Architecture section (not a SHOWCASE.md section — see note below) | 680×1060, the 14-layer **layer-inventory** stack (Modules → ... → MCP Layer → Artifacts), dark theme only. The `MCP Layer` node renders with a dashed border to flag its v5.0.0-preview.1 declaration-only status at a glance. |
 
-Why these and not the others: each is a composition of rectangles, text, simple node-graph shapes, and flat color — fully specified in SHOWCASE.md down to hex values and pixel dimensions, so it could be rendered correctly without guessing at content.
+Why these and not the others: each is a composition of rectangles, text, simple node-graph shapes, and flat color — fully specified in SHOWCASE.md down to hex values and pixel dimensions, so it could be rendered correctly without guessing at content. `demo.gif` follows the same rule: it's real terminal text and cursor motion, not a fabricated chat UI, so it could be built the same honest way as the static PNGs instead of requiring an actual screen recording.
+
+**Note on `layer-stack-dark`:** don't confuse this with `foundryos-architecture-dark.png` above — that one renders SHOWCASE.md Section 1's **request-flow view** (top-down, what happens when a user runs a command). `layer-stack-dark` renders the separate **layer-inventory view** (bottom-up, what exists) from `README.md`'s own Architecture ASCII diagram, which SHOWCASE.md explicitly distinguishes as "same system, two honest framings, used for two different jobs." It isn't wired into `README.md` itself (which keeps the ASCII version inline for zero-dependency rendering on GitHub) — it's a supplementary visual for anyone who wants an image instead.
 
 ## `prompts/` — prompt and storyboard files, not yet rendered
 
@@ -30,7 +34,7 @@ These need either an actual AI image generator, a screen recording, or a designe
 | File | What it's for |
 |---|---|
 | `screenshot-prompts.md` | The 4 README screenshot mockups (`/cpo`, `/robotics`, `/gtm`, `/brand`) — specific card layouts and data, best done with an image model or quick design-tool pass |
-| `gif-storyboard.md` | The 10-frame, 10-second GIF — a screen-recording production plan |
+| `gif-storyboard.md` | The full 10-frame, 10-second, multi-app GIF (terminal → AI assistant chat UI) — the terminal-only beat (frames 1 and 3) now ships as `images/demo.gif`; frames 2 and 4–10, which require a real chat-interface screen recording, are still a production plan |
 | `demo-storyboard.md` | The 30-second, 10-scene demo video — a screen-recording + edit production plan |
 | `hero-image-prompts.md` | The 2 large illustrative hero images ("One coherent answer," "Brand runs through everything") — mood-setting scenes, not diagrams |
 | `logo-prompts.md` | The original AI-generation prompt for the logo mark, kept as an alternative even though a real hand-built version already ships in `images/` |

@@ -4,6 +4,33 @@ Canonical, publish-ready release notes — paste the relevant section directly i
 
 ---
 
+## v5.0.0-preview.1 — MCP Declaration Layer
+
+**Tag:** `v5.0.0-preview.1`
+
+**This is a pre-release, not the full v5.0.0.** It ships the first of three capabilities originally scoped under the planned v5.0.0 major — a declarative **MCP Layer** letting a Skill name a specific real-world data or action need instead of guessing silently. A Runtime and an Execution Engine (the pieces that would make this autonomous) remain unshipped; the plain `v5.0.0` tag isn't cut until they land too. See `VERSIONING.md` §11 for the new pre-release tag convention this release introduces.
+
+### What's new
+
+- **`mcp-layer/MCP_LAYER.md`** — the declaration contract: any Skill can append an `## MCP Tool Request` (Need / Category / If-unavailable) instead of silently guessing at a live fact. FoundryOS itself still holds no state and executes nothing — whichever MCP-capable assistant is running the session (Claude Code, Cowork, or any other MCP client) fulfills the request, or the Meta-Agent's existing Missing Inputs/Assumptions handling absorbs the gap.
+- **`knowledge-graph/MCP_GRAPH.md`**, a 7th Knowledge Graph file, mapping how a request connects the triggering Command to the Artifact it improves.
+- **The `/mcp` command**, bringing the command total from 40 to 41.
+- No new Runtime, no new Execution Engine, no new autonomous behavior — this release is documentation and a declaration format only, keeping FoundryOS's "zero install, it's markdown" claim true.
+
+### Final counts
+
+179 Modules · 59 Skills · 10 Agents · 1 Meta-Agent · 11 Workflows · 13 Memory files · 3 Advanced-Layer Agents · 7 Knowledge Graphs · 1 MCP Layer (declaration only) · 41 Commands (+ 41 generated Claude Code slash commands) · 9 Examples · 10 Test specs · 11 Onboarding docs.
+
+### Upgrading
+
+Nothing to migrate — purely additive and documentation-only. If you'd generated `.claude/commands/` locally before this release, re-run `python3 scripts/generate_claude_commands.py` to pick up `/mcp`. No Skill is required to emit an MCP Tool Request; existing runs behave exactly as before unless a Skill's output would genuinely benefit from a live external fact.
+
+### What's still ahead
+
+The plain `v5.0.0` tag ships once a Runtime (state held across Workflow steps) and an Execution Engine (steps that run in order, unattended) land on top of this declaration layer — see `docs/ROADMAP.md` and `VERSION.md`'s Roadmap section.
+
+---
+
 ## v4.1.0 — Problem Solving & Decision Modeling
 
 **Tag:** `v4.1.0`

@@ -36,6 +36,7 @@ These activate the learning loop on top of the core system.
 | `/planner` | Turn an approved plan into a dated roadmap | [commands/planner.md](commands/planner.md) |
 | `/critic` | Adversarial pass before a plan ships | [commands/critic.md](commands/critic.md) |
 | `/reflection` | Extract lessons after an outcome is known | [commands/reflection.md](commands/reflection.md) |
+| `/mcp` | Declare or check a live external-data need against a connected MCP tool | [commands/mcp.md](commands/mcp.md) |
 
 ## Artifact & Workflow Commands
 

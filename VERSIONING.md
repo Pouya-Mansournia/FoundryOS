@@ -74,7 +74,7 @@ A MAJOR bump (`X.0.0`) means a new top-level layer was added, or the relationshi
 - **v2.0** — the Workflows layer and the entire Advanced Layer (Memory, Reflection, Critic, Planner, Knowledge Graph) added at once.
 - **v3.0** — the Command Layer (`commands/`, later `.claude/commands/`) plus the full onboarding doc set.
 - **v4.0.0** — the rebrand to FoundryOS and the Brand Operating System (CBO-Agent, 17 brand Skills, 6 brand Memory files, a 6th Knowledge Graph, 13 Commands) woven into every existing layer — also the version chosen for first public release (§3).
-- **v5.0.0 (planned)** — see §9: a Runtime/MCP/execution-engine layer, which changes what FoundryOS *is* (a knowledge system you read from, to one that can also act).
+- **v5.0.0 (in progress)** — see §9: a Runtime/MCP/execution-engine layer, which changes what FoundryOS *is* (a knowledge system you read from, to one that can also act). Shipping in slices under the pre-release convention in §11 — `v5.0.0-preview.1` (MCP declaration layer) is out; Runtime and the Execution Engine remain before the plain `v5.0.0` tag.
 
 **Test:** if removing the new thing would leave a dangling reference in another layer (a Workflow that expects an Agent that no longer exists, a Command pointing at a layer that's gone), it was structural enough to be a MAJOR.
 
@@ -109,19 +109,23 @@ A PATCH bump (`x.y.Z`) means a fix that adds or removes no capability — and, c
 
 ## 8. Current Version
 
-**v4.0.0 — first public release.**
+**v5.0.0-preview.1 — pre-release toward the v5.0.0 major.**
 
-Ships: the FoundryOS rebrand, the full Brand Operating System (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, 13 brand Commands), a complete repo-wide consistency pass (zero broken links, zero phantom references, zero Source-Module/disk mismatches), and a full open-source hygiene pass (`LICENSE`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `.gitignore`, `.github/` templates, badges).
+The last complete public release is still **v4.0.0** in the sense §3 means it (first public tag); the most recent full MINOR is **v4.1.0**. v5.0.0-preview.1 is a pre-release tag (§11) marking partial progress toward the v5.0.0 MAJOR — it ships only the MCP declaration layer (`mcp-layer/MCP_LAYER.md`, `knowledge-graph/MCP_GRAPH.md`, the `/mcp` command). The Runtime and Execution Engine bullets under §9 are not part of this release; the plain `v5.0.0` tag is not cut until they land too.
 
-Full detail: [`CHANGELOG.md`](CHANGELOG.md) (`## v4.0`), [`RELEASE_NOTES.md`](RELEASE_NOTES.md), [`AUDIT_REPORT.md`](AUDIT_REPORT.md), and [`FINAL_RELEASE_AUDIT.md`](FINAL_RELEASE_AUDIT.md). Current counts: [`VERSION.md`](VERSION.md).
+Ships: `mcp-layer/MCP_LAYER.md` (the declaration contract — Need / Category / If-unavailable), `knowledge-graph/MCP_GRAPH.md` (7th Knowledge Graph file), `commands/mcp.md` (`/mcp`, bringing the command total to 41), and the corresponding updates to `README.md`, `VERSION.md`, and `CHANGELOG.md`.
+
+Full detail: [`CHANGELOG.md`](CHANGELOG.md) (`## v5.0.0-preview.1`), [`RELEASE_NOTES.md`](RELEASE_NOTES.md), [`mcp-layer/MCP_LAYER.md`](mcp-layer/MCP_LAYER.md). Prior full release: [`CHANGELOG.md`](CHANGELOG.md) (`## v4.0`), [`AUDIT_REPORT.md`](AUDIT_REPORT.md), [`FINAL_RELEASE_AUDIT.md`](FINAL_RELEASE_AUDIT.md). Current counts: [`VERSION.md`](VERSION.md).
 
 ---
 
 ## 9. Roadmap Version
 
-**v5.0.0 (planned) — Runtime, MCP, Tool Integration & Execution Engine.**
+**v5.0.0-preview.1 (shipped) — MCP Declaration Layer.** The first of the three capabilities originally scoped under "v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine" — see §8 above and `VERSION.md`'s Roadmap section for what shipped.
 
-This is the next MAJOR, not a MINOR, because it changes what FoundryOS *is*: today it's a knowledge system a human or an assistant reads from and reasons with; v5.0.0 adds an actual execution layer — a Runtime that can hold state across steps, MCP/tool integration so Agents can call real tools instead of only producing text, an execution engine that can run a Workflow's steps without a human re-prompting between each one, and the closed-loop/autonomous-workflow behavior already sketched in `VERSION.md`'s and `docs/ROADMAP.md`'s Roadmap sections. None of that exists yet — v5.0.0 is a target, not a count.
+**v5.0.0 (still planned) — Runtime & Execution Engine.**
+
+This remains the next MAJOR, not a MINOR, because it changes what FoundryOS *is*: today it's a knowledge system a human or an assistant reads from and reasons with; the plain v5.0.0 tag adds an actual execution layer — a Runtime that can hold state across steps, an execution engine that can run a Workflow's steps without a human re-prompting between each one (calling the real MCP tools v5.0.0-preview.1 already lets a Skill declare), and the closed-loop/autonomous-workflow behavior already sketched in `VERSION.md`'s and `docs/ROADMAP.md`'s Roadmap sections. None of that exists yet — v5.0.0 is still a target, not a count, even though its first slice has shipped.
 
 Full detail and current bullet list: [`VERSION.md`](VERSION.md) (Roadmap → v5.0.0) and [`docs/ROADMAP.md`](docs/ROADMAP.md) (v5).
 
@@ -142,6 +146,7 @@ Full detail and current bullet list: [`VERSION.md`](VERSION.md) (Roadmap → v5.
 - One tag per public release. Tags are never moved or force-pushed to point at a different commit after creation — if a release needs correcting post-tag, that's a PATCH and a new tag (§7).
 - No floating `latest` tag that gets silently overwritten. If a "latest stable" pointer is ever needed, it's a GitHub Release marked "Latest," not a moving git tag.
 - Internal milestones (anything pre-v4.0.0) are never tagged, retroactively or otherwise — see §2.
+- **Pre-release tags** (new, introduced with v5.0.0-preview.1): when a MAJOR version's full scope is being delivered in deliberate slices rather than all at once, each slice before the complete bundle ships gets a SemVer pre-release suffix — `vX.0.0-preview.N`, e.g. `v5.0.0-preview.1`, then `-preview.2` for the next slice, and so on. `N` increments per partial delivery toward that MAJOR's full scope, not per bug fix (that's still a PATCH, §7, and doesn't apply to a tag that was never a complete public release). The plain `vX.0.0` tag is reserved for the release where every bullet under that version's Roadmap entry (§9) has shipped — a preview tag is never retroactively renamed into the final one; the final release gets its own new tag once the bundle is actually complete. Why this exists: v5.0.0 bundles three genuinely separable capabilities (Runtime, MCP, Execution Engine) under one MAJOR per §5's "new top-level layer" test, and shipping the first as soon as it's ready — rather than holding it back until all three are done — needed a tag that's honest about being partial.
 
 ---
 

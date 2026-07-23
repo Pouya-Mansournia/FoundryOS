@@ -34,7 +34,7 @@ brand/           brand/BRAND_OS.md — the Brand OS charter
 
 - **Markdown only.** No code, no executables.
 - **Stay generic.** Never name a specific company, product, or brand — every example should be written so it's obviously reusable. If you need a placeholder, use "the company" or a generic descriptor like "a robotics startup."
-- **Match the existing format exactly.** A new `SKILL.md` should look like the other 59 (this includes the 17 brand Skills, `42-brand-strategy-skill` through `58-brand-roadmap-skill`, and the cross-cutting `59-problem-solving-decision-modeling-skill` — same template, no special-casing). A new `commands/*.md` should follow the Purpose / Activated Agents / Activated Skills / Workflows / Output / Example template used by all 40 existing commands.
+- **Match the existing format exactly.** A new `SKILL.md` should look like the other 59 (this includes the 17 brand Skills, `42-brand-strategy-skill` through `58-brand-roadmap-skill`, and the cross-cutting `59-problem-solving-decision-modeling-skill` — same template, no special-casing). A new `commands/*.md` should follow the Purpose / Activated Agents / Activated Skills / Workflows / Output / Example template used by all 41 existing commands.
 - **Use diagrams and arrows where they clarify a sequence or dependency** — see any `knowledge-graph/*.md` file for the house style (ASCII arrows, not embedded images).
 
 ## How to add a Skill
