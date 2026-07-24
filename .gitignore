@@ -45,3 +45,8 @@ node_modules/
 # the "download and extract" install path from INSTALL.md
 *.zip
 *.tar.gz
+
+# Internal process-tracking docs for the evolution effort (roadmap,
+# decision log, changelog, phase-by-phase records) — kept locally for
+# reference, not part of the published product.
+docs/foundryos-evolution/

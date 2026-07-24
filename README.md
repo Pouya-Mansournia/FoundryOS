@@ -116,7 +116,7 @@ See [`docs/EXAMPLES.md`](docs/EXAMPLES.md) for the indexed guide, or jump straig
       ↓
  Brand Intelligence
       ↓
- 41 Commands
+ 42 Commands
       ↓
  MCP Layer
       ↓
@@ -143,7 +143,7 @@ And the diagram ends at **Artifacts**, not Commands — Commands are how you tri
 
 **Advanced Layer** — Memory (13 persistent files: 7 cross-domain, 6 brand-specific), Reflection Agent, Critic Agent, Planner Agent, and a Knowledge Graph (6 files, including [`BRAND_GRAPH.md`](knowledge-graph/BRAND_GRAPH.md)) — lets the system accumulate context and self-critique across runs instead of starting from zero each time, including brand consistency, voice consistency, and narrative quality. Full explanation: [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md).
 
-**Commands** (41) expose every Agent, Workflow, and Advanced-Layer component as a short slash command — `/cpo`, `/saas`, `/critic`, `/fundraising`, `/brand`, `/logo`, `/voice`, `/solve`, `/mcp`. A command is a pointer into logic that already exists; it adds no new behavior. See [`COMMANDS.md`](COMMANDS.md).
+**Commands** (42) expose every Agent, Workflow, and Advanced-Layer component as a short slash command — `/cpo`, `/saas`, `/critic`, `/fundraising`, `/brand`, `/logo`, `/voice`, `/solve`, `/mcp`, `/idea-discovery`. A command is a pointer into logic that already exists; it adds no new behavior. See [`COMMANDS.md`](COMMANDS.md).
 
 **MCP Layer** (new in v5.0.0-preview.1) sits between Commands and Artifacts as a declaration contract, not a runtime: any Skill whose output would be meaningfully better with a live external fact — current competitor pricing, what's actually in an existing codebase — can append an MCP Tool Request (Need / Category / fallback) instead of guessing silently. FoundryOS still executes nothing itself; whichever MCP-capable assistant is running the session fulfills the request, or the Meta-Agent's existing Missing Inputs/Assumptions handling absorbs the gap. This is deliberately the smaller half of the planned v5.0.0 major — a Runtime and an Execution Engine for unattended, closed-loop execution remain unshipped. Full spec: [`mcp-layer/MCP_LAYER.md`](mcp-layer/MCP_LAYER.md); how it connects to Commands and Artifacts: [`knowledge-graph/MCP_GRAPH.md`](knowledge-graph/MCP_GRAPH.md).
 
@@ -154,7 +154,7 @@ And the diagram ends at **Artifacts**, not Commands — Commands are how you tri
 ## More Features
 
 - **Reusable Workflows.** The 11 most common request shapes are pre-sequenced so they don't have to be re-derived from scratch every time.
-- **Slash commands everywhere.** 41 commands give you a fast, explicit way to invoke any Agent, Workflow, or Advanced-Layer component.
+- **Slash commands everywhere.** 42 commands give you a fast, explicit way to invoke any Agent, Workflow, or Advanced-Layer component.
 - **Fully generic templates.** No placeholder company, product, or example-brand names baked into the system — every template is written to be reused as-is for whatever you're actually building.
 
 (See [Why FoundryOS](#why-foundryos) above for the headline differentiators.)
@@ -184,11 +184,11 @@ See [`GETTING_STARTED.md`](GETTING_STARTED.md) for the 30-second / 5-minute / 30
 
 ## Commands
 
-41 slash commands cover every Agent, Workflow, and Advanced-Layer component — `/cpo`, `/cto`, `/cio`, `/coo`, `/cfo`, `/cro`, `/cmo`, `/chro`, `/ceo`, `/planner`, `/critic`, `/reflection`, `/mcp`, `/prd`, `/gtm`, `/fundraising`, `/startup`, `/company-builder`, `/saas`, `/hardware`, `/robotics`, `/ai-product`, `/strategy`, `/market`, `/finance`, `/architecture`, `/operations`, `/solve`, `/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`. Full table and usage: [`COMMANDS.md`](COMMANDS.md).
+42 slash commands cover every Agent, Workflow, and Advanced-Layer component — `/cpo`, `/cto`, `/cio`, `/coo`, `/cfo`, `/cro`, `/cmo`, `/chro`, `/ceo`, `/planner`, `/critic`, `/reflection`, `/mcp`, `/idea-discovery`, `/prd`, `/gtm`, `/fundraising`, `/startup`, `/company-builder`, `/saas`, `/hardware`, `/robotics`, `/ai-product`, `/strategy`, `/market`, `/finance`, `/architecture`, `/operations`, `/solve`, `/brand`, `/logo`, `/naming`, `/tagline`, `/story`, `/design-system`, `/identity`, `/community`, `/website`, `/copy`, `/voice`, `/colors`, `/social-assets`. Full table and usage: [`COMMANDS.md`](COMMANDS.md).
 
 ### Claude Code slash commands
 
-The `commands/` folder above is documentation — Purpose, Activated Agents, Activated Skills, Workflows, Output, Example — written for a human (or any assistant) to read and follow. `.claude/commands/` is the executable layer on top of it: 41 matching files, in Claude Code's native slash-command format, that ship pre-built in this repo. Open the repo in Claude Code and `/cpo`, `/robotics`, `/brand`, and the rest just work — no setup step.
+The `commands/` folder above is documentation — Purpose, Activated Agents, Activated Skills, Workflows, Output, Example — written for a human (or any assistant) to read and follow. `.claude/commands/` is the executable layer on top of it: 42 matching files, in Claude Code's native slash-command format, that ship pre-built in this repo. Open the repo in Claude Code and `/cpo`, `/robotics`, `/brand`, and the rest just work — no setup step.
 
 Each generated file is a thin wrapper, not a duplicate. It instructs Claude Code to read the relevant Agent file(s) (and `meta-agent/META_AGENT.md` for multi-Agent commands) live off disk before answering, carries the full command spec inline, and points to the Meta-Agent merge pattern in [`QUICKSTART.md`](QUICKSTART.md#worked-example) for commands that activate more than one Agent. This keeps `.claude/commands/` honest as the system evolves — it reads the Agent/Meta-Agent files as they exist today rather than freezing a snapshot of their content at generation time.
 
@@ -216,7 +216,7 @@ FoundryOS/
 │   │   └── feature_request.md   ← new Skill / Agent / Workflow / Command proposal
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .claude/
-│   └── commands/                ← 41 pre-built Claude Code slash commands (generated from commands/)
+│   └── commands/                ← 42 pre-built Claude Code slash commands (generated from commands/)
 │       └── {name}.md
 ├── ADVANCED_LAYER.md            ← how Memory/Reflection/Critic/Planner/Graph interact
 ├── VERSION.md                   ← current version + structural roadmap
@@ -262,7 +262,7 @@ FoundryOS/
 ├── knowledge-graph/              ← 7 dependency-map files (incl. ARTIFACT_GRAPH.md, BRAND_GRAPH.md, MCP_GRAPH.md)
 ├── mcp-layer/
 │   └── MCP_LAYER.md              ← declarative MCP tool-request contract (v5.0.0-preview.1, spec only)
-├── commands/                     ← 41 slash-command definitions
+├── commands/                     ← 42 slash-command definitions
 │   └── {name}.md
 ├── scripts/
 │   └── generate_claude_commands.py  ← regenerates .claude/commands/ from commands/

@@ -14,10 +14,12 @@
 | Memory Files | 13 (7 cross-domain + 6 brand) |
 | Advanced-Layer Agents | 3 (Reflection, Critic, Planner) |
 | Knowledge Graphs | 7 (5 original + `BRAND_GRAPH.md` + `MCP_GRAPH.md`) |
-| Commands | 41 (26 original + 13 brand + `/solve` + `/mcp`) |
+| Commands | 42 (26 original + 13 brand + `/solve` + `/mcp` + `/idea-discovery`) |
 | MCP Layer | 1 (`mcp-layer/MCP_LAYER.md` — declaration spec only; no Runtime, no Execution Engine) |
 | Onboarding Docs | 11 (`INSTALL.md` through `CONTRIBUTING.md`) |
 | Brand Charter | 1 (`brand/BRAND_OS.md`) |
+
+**`/idea-discovery`** (added post-v5.0.0-preview.1) exposes an Idea Discovery workflow — existing/adjacent/historical-solution research plus a human evidence-review pause before any product design begins. Only the command itself ships as part of the counted product surface here; the underlying state-machine, evidence-ledger, and decision-record infrastructure it's built on (`runtime/`) remains outside `VERSION.md`'s shipped scope.
 
 v1.0 was the first complete pass through the core four layers: every Module compiled into a Skill, every Skill owned by at least one Agent, and the Meta-Agent able to route any request across the full set without a human manually picking Agents. v2.0 added the **Workflows layer** (`workflows/`) and the **Advanced Layer** (`memory/`, `reflection-agent/`, `critic-agent/`, `planner-agent/`, `knowledge-graph/`) described in full in [`ADVANCED_LAYER.md`](ADVANCED_LAYER.md). v3.0 added the **Command Layer** (`commands/`, 26 slash commands, see [`COMMANDS.md`](COMMANDS.md)) and a full beginner-onboarding doc set so a complete beginner can get from a ZIP download to a working session in any of four supported environments. v4.0 is two changes shipped together — the rename to **FoundryOS** and a full **Brand Operating System** (CBO-Agent, 17 brand Skills, 6 brand Memory files, `BRAND_GRAPH.md`, 13 brand Commands) integrated into every existing layer rather than appended on top. v4.1 added a **Problem Solving and Decision Modeling** reasoning layer — a reusable engine for framing ambiguous problems, building causal/metric models, and selecting quantitative formulas, rather than another PRD template. v5.0.0-preview.1 adds the **MCP Layer** — a declaration contract letting a Skill name a specific live-data need instead of guessing silently, with no runtime or execution behavior attached yet. See [`CHANGELOG.md`](CHANGELOG.md) for how it got here.
 

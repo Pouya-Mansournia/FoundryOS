@@ -54,3 +54,7 @@ Read by `reflection-agent/REFLECTION_AGENT.md` as the primary input for finding 
             their price would break gross margin. Outcome (60 days later):
             no measurable increase in lost deals attributed to price.
 ```
+
+## Formalized Decision Record Contract (FoundryOS Evolution, Phase 4)
+
+`runtime/decision/DECISION_RECORD_CONTRACT.md` fixes the Decision Record fields above (Decision ID through Lesson) as a checked contract — every field required, `Evidence` a real list of `evidence_id`s traceable to a run's `runtime/evidence/EVIDENCE_LEDGER_CONTRACT.md`-conformant ledger, and `Revisit Conditions` a specific checkable trigger rather than "if things change." Same fields, same purpose — this only makes them consistently enforced.

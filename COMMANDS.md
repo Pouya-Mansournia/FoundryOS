@@ -38,6 +38,14 @@ These activate the learning loop on top of the core system.
 | `/reflection` | Extract lessons after an outcome is known | [commands/reflection.md](commands/reflection.md) |
 | `/mcp` | Declare or check a live external-data need against a connected MCP tool | [commands/mcp.md](commands/mcp.md) |
 
+## Idea Discovery Command
+
+This runs *before* an artifact command — it checks whether the idea should be built at all, forcing a look at existing/adjacent/historical solutions and a pause for your own real-world experience before any design work starts.
+
+| Command | Purpose | File |
+|---|---|---|
+| `/idea-discovery` | Check "should we build this?" before product design — existing-solution research, a human evidence-review pause, and one of six explicit outcomes | [commands/idea-discovery.md](commands/idea-discovery.md) |
+
 ## Artifact & Workflow Commands
 
 These activate a specific deliverable or a multi-agent Workflow.

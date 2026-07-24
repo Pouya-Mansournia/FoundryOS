@@ -33,3 +33,7 @@ Read by the Meta-Agent at the start of any workflow as a quick check against kno
             CFO-Agent's gross-margin model first get revisited within one
             quarter. Applies to: 07-go-to-market-workflow, CRO-Agent.
 ```
+
+## Formalized Promotion Gate (FoundryOS Evolution, Phase 7)
+
+`runtime/memory-promotion/PROMOTION_QUEUE_CONTRACT.md` makes the Update Rules above checkable: a candidate lesson must carry an unbroken provenance chain (evidence → decision → reflection) before it may be added here, and a lesson that would skip straight from raw evidence to this file is rejected at the queue rather than silently added. Same fields, same purpose — this only makes "a lesson only gets added here once an outcome is known" enforced rather than aspirational.

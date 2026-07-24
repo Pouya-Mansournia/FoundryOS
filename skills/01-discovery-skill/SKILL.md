@@ -21,3 +21,7 @@ Helps define the problem, customer, ICP, persona, JTBD, user journey, and discov
 - Opportunity Hypothesis
 - Gaps
 - Risks
+
+## State-Machine-Backed Variant (FoundryOS Evolution, Phase 3)
+
+This skill's Problem Statement and discovery work are reused (not duplicated) by `runtime/state-machine/workflows/idea-discovery/STATE_REGISTRY.md`'s `PROBLEM_FRAMING` state, extended with an explicit gate requiring existing/adjacent/historical-solution research before any product design proceeds.

@@ -140,3 +140,7 @@ Section notes:
 - The system must work equally well for startup/business questions, AI products, robotics and hardware products, SaaS products, and brand/identity work -- don't default to a software-only mental model.
 - Brand is not an add-on step reserved for launch. Any output that will reach a customer (a landing page, a pitch deck, a product UI) should carry a consistent name, voice, and visual system -- route through CBO-Agent whenever a customer-facing artifact is in scope, not only when the request explicitly says "brand."
 - When in doubt between asking a clarifying question and making an assumption, default to the assumption and state it -- founders are usually better served by a strong draft they can correct than by a question that stalls momentum.
+
+## State-Machine-Backed Run Integration (FoundryOS Evolution, Phase 5)
+
+For a request running inside a state-machine-backed workflow (Idea Discovery today, `runtime/state-machine/workflows/`), the Meta-Agent's role narrows to exactly the Layer 7 boundary in `docs/architecture/TARGET_ARCHITECTURE.md`: it resolves a state's named capability against `runtime/orchestration/CAPABILITY_REGISTRY.md`, routes the call, and returns the result to the state — it does not decide *that* a capability is needed (the state machine does) and it does not invent a transition (`runtime/state-machine/TRANSITION_CONTRACT.md` does). This is additive: the classification/routing/merging behavior described above is unchanged for ordinary, non-state-machine requests (every existing Command and Workflow).

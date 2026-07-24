@@ -61,3 +61,7 @@ One merged executive plan: Problem Statement → ICP → PRD → Positioning & N
 
 ## Example Prompt
 *"We have an idea for a new product but nothing built yet — help us turn it into a complete plan from problem statement through go-to-market."*
+
+## State-Machine-Backed Variant (FoundryOS Evolution, Phase 3)
+
+For an idea that hasn't yet been checked against existing/adjacent/historical solutions, `runtime/state-machine/workflows/idea-discovery/STATE_REGISTRY.md` runs a stricter, state-machine-backed discovery pass ahead of this workflow — it pauses for human evidence review before any design work begins and ends in one of six explicit gate outcomes (including "an existing solution already covers this" and "reject or archive"), rather than assuming a new product should be built. If its outcome is `CONTINUE_NEW_PRODUCT_DISCOVERY`, this workflow picks up from there using the discovery work already done. This is additive — this workflow is unchanged and remains valid to run directly when that upfront check isn't needed.
