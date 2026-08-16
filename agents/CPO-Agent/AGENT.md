@@ -11,7 +11,8 @@ Owns the product: customer discovery, market position, product strategy, require
 - 10-analytics-skill
 - 15-framework-library-skill
 - 27-product-scorecard-skill
+- 60-customer-discovery-interview-skill
 
 ## Coverage
-- 7 Skills
-- 36 Modules
+- 8 Skills
+- 37 Modules

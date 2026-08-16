@@ -2,6 +2,15 @@
 
 All notable structural changes to FoundryOS are documented here. Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## Unreleased — Customer Discovery & Problem Validation Skill
+
+Added post-v5.0.0-preview.1, following the same pattern as `/idea-discovery`: a new capability shipped as a Skill + Command without a version bump.
+
+- Added `60-customer-discovery-interview-skill` (CPO-Agent, depends on `01-discovery-skill`), compiled from a new module `178_Customer_Discovery_Interview_OS`. Runs a structured Customer Discovery interview — Context, Pain, Business Impact, Current Solution, Buying Reality, Commitment — that structurally enforces the rule that the founder must not pitch, describe, demonstrate, or defend the product before Question 14 (Problem Discovery vs. Solution Validation). Produces a Founder Score (Pain/Frequency/Business Impact/Current Spend/Buying Intent, /25) with a KILL / INVESTIGATE / VALIDATE-BUILD recommendation, a verbatim "most important customer sentence," and a cross-interview Validation Dashboard. Mirrored into `agents/CPO-Agent/60-customer-discovery-interview-skill/` per the standard Agent-mirroring convention.
+- Added `commands/customer-discovery.md` and `.claude/commands/customer-discovery.md` (`/customer-discovery`), bringing the command total from 42 to 43. Added to `COMMANDS.md`'s new "Customer Discovery Command" section (parallel to "Idea Discovery Command"), and referenced from `commands/cpo.md` / `.claude/commands/cpo.md`'s Activated Skills list.
+- Updated `registry/SKILL_REGISTRY.md` (60 Skills / 180 Modules, new row 60), `registry/AGENT_REGISTRY.md` and `agents/CPO-Agent/AGENT.md` (8 Skills / 37 Modules for CPO-Agent), and `VERSION.md`'s counts table and narrative note.
+- Updated `README.md` command-count references (42 → 43, three locations).
+
 ## v5.0.0-preview.1 — MCP Declaration Layer
 
 A **pre-release tag**, not the full v5.0.0 major — see `VERSIONING.md` §11 for the new pre-release tag convention this release introduces. Ships only the first of the three capabilities originally scoped under "v5.0.0 — Runtime, MCP, Tool Integration & Execution Engine": a declarative contract letting a Skill name a specific real-world data or action need instead of guessing silently. No Runtime (state across Workflow steps) and no Execution Engine (unattended step-chaining) ship in this release — both remain tracked under the plain `v5.0.0` tag.

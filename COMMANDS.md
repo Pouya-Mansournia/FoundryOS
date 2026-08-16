@@ -46,6 +46,14 @@ This runs *before* an artifact command — it checks whether the idea should be 
 |---|---|---|
 | `/idea-discovery` | Check "should we build this?" before product design — existing-solution research, a human evidence-review pause, and one of six explicit outcomes | [commands/idea-discovery.md](commands/idea-discovery.md) |
 
+## Customer Discovery Command
+
+This also runs *before* an artifact command — it validates that a real customer problem exists, using a structured interview that keeps Problem Discovery (Q1–13) strictly separate from Solution Validation (Q14+), so the founder never pitches before the problem is proven.
+
+| Command | Purpose | File |
+|---|---|---|
+| `/customer-discovery` | Structured customer discovery interview — pain, business impact, current solution, buying reality, Founder Score (/25), and a KILL / INVESTIGATE / VALIDATE-BUILD recommendation | [commands/customer-discovery.md](commands/customer-discovery.md) |
+
 ## Artifact & Workflow Commands
 
 These activate a specific deliverable or a multi-agent Workflow.

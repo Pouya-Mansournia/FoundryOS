@@ -20,6 +20,7 @@ Activated Skills:
   - `04-prd-skill` — structured PRD
   - `10-analytics-skill` — what to measure, dashboards
   - `27-product-scorecard-skill` — PMF/retention/reliability scoring
+  - `60-customer-discovery-interview-skill` — structured customer discovery interview, Founder Score, and validation dashboard
 
 Workflows:
   - `01-new-product-workflow`

@@ -2,7 +2,7 @@
 
 This registry is the canonical reference for every Skill in FoundryOS. Each Skill compiles a small cluster of Modules (the `122_FoundryOS_Module_Map`-defined atomic units) into one reusable capability, and is owned by exactly one Agent — except `35-npi-manufacturing-skill`, which is intentionally co-owned by COO-Agent and CIO-Agent. "Dependencies" below means the other Skill(s) whose output is the most natural input to this one in a typical end-to-end run, not a hard technical dependency — the Meta-Agent decides per-request whether to actually run them in sequence.
 
-Total: **59 Skills** compiled from **179 Modules**, owned by **10 Agents**.
+Total: **60 Skills** compiled from **180 Modules**, owned by **10 Agents**.
 
 | # | Skill | Purpose | Source Modules | Key Outputs | Owning Agent | Dependencies |
 |---|---|---|---|---|---|---|
@@ -65,6 +65,7 @@ Total: **59 Skills** compiled from **179 Modules**, owned by **10 Agents**.
 | 57 | `brand-assets-management-skill` | Organizes the asset library and file-naming/versioning conventions | 168_Brand_Assets_Management_OS, 169_Asset_Library_OS, 170_File_Naming_Convention_OS | Asset Library Structure, File Naming Convention, Asset Versioning Policy | CBO-Agent | `46-logo-system-skill`, `44-design-system-skill` |
 | 58 | `brand-roadmap-skill` | Sequences brand rollout into a dated plan with health metrics | 171_Brand_Roadmap_OS, 172_Launch_Sequencing_OS, 173_Brand_Metrics_OS | Brand Roadmap, Launch Sequence Plan, Brand Health Metrics | CBO-Agent | `43-brand-book-skill` |
 | 59 | `problem-solving-decision-modeling-skill` | Frames ambiguous problems, builds causal/metric models, and selects reusable quantitative formulas to reach an evidence-based decision | 174_Problem_Framing_OS, 175_Causal_Metric_OS, 176_Solution_Formula_OS, 177_Validation_Rollout_OS | Decision Memo, Causal Model, Metric Tree, Hypothesis Register, Formula Sheet, Decision Matrix, Scenario Model, Experiment Plan, Rollout Plan | CEO-Agent | None — cross-cutting reasoning layer, runs alongside any other Skill wherever a real decision (not an artifact request) is in scope |
+| 60 | `customer-discovery-interview-skill` | Runs a structured customer discovery interview that separates Problem Discovery (Q1–13) from Solution Validation (Q14+), scores it, and aggregates across interviews into a validation dashboard | 178_Customer_Discovery_Interview_OS | Interview Record, Pain/Business Impact/Current Solution/Buying Reality fields, Founder Score (/25) & Recommendation, Verbatim Customer Quote, Validation Dashboard | CPO-Agent | `01-discovery-skill` |
 
 ## Notes
 

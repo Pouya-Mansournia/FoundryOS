@@ -54,8 +54,9 @@ Total: **10 Agents** managing **59 Skills** (one Skill, `35-npi-manufacturing-sk
 | `10-analytics-skill` | Defines what to measure and builds dashboards for product/engineering/business health |
 | `15-framework-library-skill` | Supplies standard frameworks, patterns, and anti-patterns for each OS stage |
 | `27-product-scorecard-skill` | Scores product health against PMF, retention, and reliability metrics |
+| `60-customer-discovery-interview-skill` | Runs structured customer discovery interviews that separate Problem Discovery from Solution Validation, and scores them |
 
-**Typical Outputs:** ICP & Personas, JTBD, TAM/SAM/SOM, Competitor Analysis, UVP, Business Model Canvas, PRD, North Star Metric, Product Scorecard
+**Typical Outputs:** ICP & Personas, JTBD, TAM/SAM/SOM, Competitor Analysis, UVP, Business Model Canvas, PRD, North Star Metric, Product Scorecard, Customer Discovery Interview Record & Founder Score
 
 **Dependencies:** Consumes CEO-Agent's strategic framing. Feeds CTO-Agent / CIO-Agent (what to build), CRO-Agent / CMO-Agent (positioning), and CFO-Agent (pricing inputs).
 
